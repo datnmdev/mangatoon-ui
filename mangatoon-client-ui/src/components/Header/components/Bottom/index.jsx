@@ -71,9 +71,6 @@ function Bottom() {
                         <div>
                             <div className='space-x-1'>
                                 <span>Xếp Hạng</span>
-                                <span>
-                                    <i className="fa-solid fa-caret-down"></i>
-                                </span>
                             </div>
 
                         </div>

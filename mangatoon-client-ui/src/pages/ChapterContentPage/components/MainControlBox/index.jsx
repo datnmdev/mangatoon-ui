@@ -7,6 +7,7 @@ import api from "../../../../api"
 import Button from "../../../../components/Button"
 import location from "../../../../routers/location"
 import { v4 } from 'uuid'
+import FollowButton from "./components/FollowButton"
 
 function MainControlBox({
     book,
@@ -165,16 +166,9 @@ function MainControlBox({
                     />
                 </div>
 
-                <IconButton
-                    icon={(<i className="fa-solid fa-heart"></i>)}
-                    backgroundColor="white"
-                    color="black"
-                    sx={{
-                        padding: '6px 8px'
-                    }}
-                >
-                    Theo dõi
-                </IconButton>
+                <FollowButton
+                    book={book}
+                />
             </div>
         </div>
     )

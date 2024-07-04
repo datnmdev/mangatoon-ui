@@ -16,13 +16,14 @@ import SettingPage from '../pages/SettingPage'
 import HistoryPage from '../pages/HistoryPage'
 import Protected from '../components/Protected'
 import FollowPage from '../pages/FollowPage'
+import RankingPage from '../pages/RankingPage'
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: (
-            <CommonLayout 
-                header={(<Header />)}  
+            <CommonLayout
+                header={(<Header />)}
                 content={(<Outlet />)}
                 footer={(<Footer />)}
             />
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
                         <FollowPage />
                     </Protected>
                 )
+            },
+            {
+                path: '/rank',
+                element: <RankingPage />
             }
         ]
     }
