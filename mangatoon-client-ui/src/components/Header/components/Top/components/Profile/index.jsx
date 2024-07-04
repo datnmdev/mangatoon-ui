@@ -83,7 +83,13 @@ function Profile() {
                             </div>
                         </li>
 
-                        <li className="px-4 py-3 hover:text-[#F08121] cursor-pointer space-x-2">
+                        <li 
+                            className="px-4 py-3 hover:text-[#F08121] cursor-pointer space-x-2"
+                            onClick={() => {
+                                setHidden(true)
+                                navigate(location.followPage())
+                            }}
+                        >
                             <span>
                                 <i className="fa-solid fa-heart"></i>
                             </span>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import useGetHistories from "./hooks/useGetHistories"
-import { PENDING } from "../../../../constants/fetchStatus.constant"
+import { PENDING, SUCCEEDED } from "../../../../constants/fetchStatus.constant"
 import { Pagination } from "@mui/material"
 import HistoryItem from "../HistoryItem"
 import Empty from "../../../../components/Empty"
@@ -17,7 +17,20 @@ function HistoryList({
 
     useEffect(() => {
         setGetHistoriesSubmit(true)
-    }, [pagination])
+    }, [pagination.page])
+
+    useEffect(() => {
+        if (getHistoriesStatus === SUCCEEDED) {
+            if (getHistoriesData.data) {
+                if (getHistoriesData.data.rows.length === 0 && pagination.page > 1) {
+                    setPagination({
+                        ...pagination,
+                        page: pagination.page - 1
+                    })
+                }
+            }
+        }
+    }, [getHistoriesStatus])
 
     useEffect(() => {
         if (refetch.value) {

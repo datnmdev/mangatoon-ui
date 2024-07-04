@@ -91,6 +91,7 @@ function Bottom() {
 
                 <li>
                     <Link
+                        to={location.followPage()}
                         className='block px-6 py-4 hover:bg-[#F29C56]'
                     >
                         Theo Dõi

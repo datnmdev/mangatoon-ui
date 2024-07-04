@@ -1,3 +1,6 @@
+import Topic from "../../components/Topic"
+import FollowList from "./components/FollowList"
+
 function FollowPage() {
     return (
         <div className="my-8">
@@ -7,30 +10,14 @@ function FollowPage() {
                         <div className="flex justify-between items-center">
                             <div className="space-x-2">
                                 <span>
-                                    <i className="fa-regular fa-rectangle-list"></i>
+                                    <i className="fa-solid fa-heart"></i>
                                 </span>
-                                <span>Lịch sử đọc truyện</span>
-                            </div>
-
-                            <div>
-                                <Button
-                                    backgroundColor="red"
-                                    sx={{
-                                        fontSize: '1rem'
-                                    }}
-                                    disabled={deleteAllHistoryDetailStatus === PENDING}
-                                    onClick={() => setDeleteAllHistoryDetailSubmit(true)}
-                                >
-                                    {deleteAllHistoryDetailStatus === PENDING ? 'Đang xoá...' : 'Xoá tất cả'}
-                                </Button>
+                                <span>Truyện đã theo dõi</span>
                             </div>
                         </div>
                     )}
                 >
-                    <HistoryList
-                        refetch={refetch}
-                        setRefetch={setRefetch}
-                    />
+                    <FollowList />
                 </Topic>
             </div>
         </div>
