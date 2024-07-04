@@ -1,0 +1,18 @@
+services:
+  admin-ui:
+    container_name: admin-ui
+    restart: always
+    build:
+      context: ./mangatoon-admin-ui
+      dockerfile: Dockerfile
+    ports:
+      - "55001:3000"
+
+  client-ui:
+    container_name: client-ui
+    restart: always
+    build:
+      context: ./mangatoon-client-ui
+      dockerfile: Dockerfile
+    ports:
+      - "55002:3000"

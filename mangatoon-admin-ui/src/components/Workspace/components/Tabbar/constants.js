@@ -1,0 +1,6 @@
+export const DASHBOARD = 'dashboard' 
+export const STORY_MANAGEMENT = 'story-management'
+export const ADD_STORY = 'add_story' 
+export const UPDATE_STORY = 'update_story' 
+export const GENRE_MANAGEMENT = 'genre-management' 
+export const AUTHOR_MANAGEMENT = 'author-management' 

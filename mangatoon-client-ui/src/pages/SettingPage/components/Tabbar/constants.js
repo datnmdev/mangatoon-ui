@@ -1,0 +1,2 @@
+export const ACCOUNT_MANAGEMENT_TAB = 1
+export const RESET_PASSWORD_TAB = 2
