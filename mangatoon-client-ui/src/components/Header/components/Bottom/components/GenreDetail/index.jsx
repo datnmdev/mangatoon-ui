@@ -9,14 +9,15 @@ function GenreDetail({
 
     return (
         <div
-            className='absolute left-0 w-[100vw] text-black z-10 bg-white'
+            className='md:absolute xl:absolute md:left-0 xl:left-0 w-[100vw] text-black z-10'
             style={sx}
         >
-            <div className='container mx-auto my-[22px]'>
-                <ul className='flex flex-wrap items-center'>
+            <div className='container mx-auto md:my-[22px] xl:my-[22px] bg-white'>
+                <ul className='flex flex-wrap items-center sm:p-4'>
                     {data.map((item, index) => {
                         return (
                             <li
+                                className="grow"
                                 key={index}
                             >
                                 <Link

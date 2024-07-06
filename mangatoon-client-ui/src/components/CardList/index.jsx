@@ -9,7 +9,7 @@ function CardList({
 }) {
     return (
         <div>
-            <ul className='grid grid-cols-6 gap-4'>
+            <ul className='grid grid-cols-6 gap-4 sm:grid-cols-2 sm:gap-2'>
                 {data.map((item) => {
                     return (
                         <Card

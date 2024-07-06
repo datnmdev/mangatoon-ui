@@ -61,7 +61,7 @@ function RatingSection({
         }
     }, [updateStoryRatingDetailStatus])
 
-    if (!getStoryRatingDetailData?.data || getStoryRatingDetailStatus === PENDING) {
+    if (getStoryRatingDetailStatus === PENDING) {
         return (
             <SkeletonRatingSection />
         )
@@ -69,7 +69,7 @@ function RatingSection({
 
     return (
         <Protected enable={enableProtection}>
-            <div className='flex items-center space-x-2'>
+            <div className='md:flex md:items-center md:space-x-2 xl:flex xl:items-center xl:space-x-2'>
                 <Rating
                     value={getStoryRatingDetailData?.data?.rows?.[0]?.star}
                     size="large"
@@ -82,7 +82,7 @@ function RatingSection({
                     }}
                 />
 
-                <span>
+                <span className="sm:block">
                     {getStoryRatingDetailData?.data?.rows?.[0] ? `(Bạn đã đánh giá ${getStoryRatingDetailData.data.rows[0].star} sao)` : '(Bạn chưa đánh giá)'}
                 </span>
 

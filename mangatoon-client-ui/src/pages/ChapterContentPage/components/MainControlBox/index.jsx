@@ -53,7 +53,7 @@ function MainControlBox({
     }, [searchText])
 
     return (
-        <div className="fixed left-0 bottom-0 bg-[#242526] w-full flex justify-center items-center py-2">
+        <div className="fixed left-0 bottom-0 bg-[#242526] w-full flex justify-center items-center py-2 sm:px-2">
             <div className="flex items-center space-x-4">
                 <Link
                     to={location.homePage()}
@@ -96,7 +96,7 @@ function MainControlBox({
                                 key: v4()
                             })}
                         >
-                            <h3>{chapter.name}</h3>
+                            <h3 className="line-clamp-1">{chapter.name}</h3>
 
                             <span>
                                 <i className="fa-solid fa-angle-down"></i>
@@ -109,7 +109,7 @@ function MainControlBox({
                                 isOpenWindow={openSearchIW.value}
                                 key={openSearchIW.key}
                             >
-                                <div className="px-6 mb-6 w-[720px] max-h-[400px] overflow-hidden flex flex-col">
+                                <div className="px-6 mb-6 max-w-[720px] max-h-[400px] overflow-hidden flex flex-col">
                                     <div>
                                         <Search
                                             placeholder="Nhập tên chương..."
@@ -117,7 +117,7 @@ function MainControlBox({
                                         />
                                     </div>
 
-                                    <div className="grow overflow-y-auto mt-4 grid grid-cols-5 gap-2">
+                                    <div className="grow overflow-y-auto mt-4 grid md:grid-cols-5 md:gap-2 xl:grid-cols-5 xl:gap-2 sm:grid-cols-2 sm:px-2 sm:gap-2">
                                         {searchResult !== null
                                             ? (
                                                 searchResult.map(chapter => {

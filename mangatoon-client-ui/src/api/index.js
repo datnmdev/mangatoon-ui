@@ -2,6 +2,8 @@ import alias from "./alias";
 import author from "./author";
 import chapter from "./chapter";
 import chapterImage from "./chapterImage";
+import comment from "./comment";
+import commentInteraction from "./commentInteraction";
 import country from "./country";
 import genre from "./genre";
 import history from "./history";
@@ -27,5 +29,7 @@ export default {
     country,
     author,
     user,
-    history
+    history,
+    comment,
+    commentInteraction
 }

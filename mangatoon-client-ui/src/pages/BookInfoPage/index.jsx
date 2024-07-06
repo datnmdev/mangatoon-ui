@@ -6,6 +6,7 @@ import BookInfo from './components/BookInfo'
 import BookContent from './components/BookContent'
 import ChapterList from './components/ChapterList'
 import locationRouter from '../../routers/location'
+import CommentSection from './components/CommentSection'
 
 function BookInfoPage() {
     const { bookId } = useParams()
@@ -74,6 +75,16 @@ function BookInfoPage() {
                     {book
                         ? (
                             <ChapterList
+                                book={book}
+                            />
+                        )
+                        : null}
+                </div>
+
+                <div className='mt-6'>
+                    {book
+                        ? (
+                            <CommentSection
                                 book={book}
                             />
                         )

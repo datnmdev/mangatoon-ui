@@ -52,5 +52,8 @@ export default {
     },
     changePassword: (data) => {
         return axiosInstance().post('/user-api/emailPasswordCredential/changePassword', data)
+    },
+    getUserInfo: (userId) => {
+        return axiosInstance().get(`/user-api/user/${userId}`)
     }
 }

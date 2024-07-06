@@ -34,5 +34,8 @@ export default {
     },
     followPage: () => {
         return '/follow'
+    },
+    rankingPage: () => {
+        return '/rank'
     }
 }

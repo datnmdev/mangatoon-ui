@@ -6,5 +6,10 @@ export default {
     },
     createViewDetail: (data) => {
         return axiosInstance().post('/story-api/viewDetail', data)
+    },
+    getTopViewList: (queries) => {
+        return axiosInstance().get('/story-api/viewDetail/story/topViewCount', {
+            params: queries
+        })
     }
 }

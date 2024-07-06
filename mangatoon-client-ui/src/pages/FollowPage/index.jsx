@@ -3,7 +3,7 @@ import FollowList from "./components/FollowList"
 
 function FollowPage() {
     return (
-        <div className="my-8">
+        <div className="my-8 sm:px-2">
             <div className="container mx-auto">
                 <Topic
                     name={(

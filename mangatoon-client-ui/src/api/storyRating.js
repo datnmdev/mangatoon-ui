@@ -14,5 +14,10 @@ export default {
     },
     updateStoryRatingDetail: (data) => {
         return axiosInstance().put('/story-api/storyRatingDetail', data)
-    }
+    },
+     getTopRatingList: (queries) => {
+        return axiosInstance().get('/story-api/storyRatingDetail/story/topRating', {
+            params: queries
+        })
+     }
 }

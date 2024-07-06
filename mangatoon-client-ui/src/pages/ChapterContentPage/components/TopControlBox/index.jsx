@@ -70,7 +70,7 @@ function TopControlBox({
                 />
             </div>
 
-            <div className="mt-4 flex items-center space-x-2">
+            <div className="mt-4 md:flex md:items-center md:space-x-2 xl:items-center xl:space-x-2">
                 <h3 className='text-[1.2rem] font-[350]'>{book.title} - {chapter.name}</h3>
                 <span className="text-[0.9rem]">(Cập nhật lúc {moment(book.updatedAt).format('HH:mm:ss DD/MM/YYYY')})</span>
             </div>

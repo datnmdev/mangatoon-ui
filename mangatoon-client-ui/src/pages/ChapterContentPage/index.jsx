@@ -7,6 +7,7 @@ import BottomControlBox from "./components/BottomControlBox"
 import MainControlBox from "./components/MainControlBox"
 import { useSelector } from 'react-redux'
 import { userSelectors } from "../../features/user.feature"
+import CommentSection from "./components/CommentSection"
 
 function ChapterContentPage() {
     const { bookId, chapterId } = useParams()
@@ -64,7 +65,7 @@ function ChapterContentPage() {
     }, [tokens])
 
     return (
-        <div className="bg-[#333333] py-8">
+        <div className="bg-[#333333] py-8 sm:px-2">
             <div className="container mx-auto space-y-4">
                 <div className='rounded-[6px] overflow-hidden'>
                     {book && chapter
@@ -100,7 +101,7 @@ function ChapterContentPage() {
                 </div>
             </div>
 
-            <div className="mb-[54px]">
+            <div className="rounded-[6px] overflow-hidden">
                 {book && chapter
                     ? (
                         <MainControlBox
@@ -109,6 +110,19 @@ function ChapterContentPage() {
                         />
                     )
                     : null}
+            </div>
+
+            <div className="mb-[54px] mt-6">
+                <div className="container mx-auto bg-white rounded-[6px] overflow-hidden p-4">
+                    {book && chapter
+                        ? (
+                            <CommentSection
+                                book={book}
+                                chapter={chapter}
+                            />
+                        )
+                        : null}
+                </div>
             </div>
         </div>
     )

@@ -55,7 +55,7 @@ function FollowList() {
 
     return (
         <div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-0">
                 {getFollowListData.data.rows.map(row => row.story).map(story => {
                     return (
                         <FollowItem

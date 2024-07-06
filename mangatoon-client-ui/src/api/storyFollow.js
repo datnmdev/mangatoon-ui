@@ -16,5 +16,10 @@ export default {
         return axiosInstance().get('/story-api/storyFollowDetail', {
             params: queries
         })
+    },
+    getTopFollowList: (queries) => {
+        return axiosInstance().get('/story-api/storyFollowDetail/story/topFollowCount', {
+            params: queries
+        })
     }
 }

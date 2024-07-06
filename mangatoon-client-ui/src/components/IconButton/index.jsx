@@ -13,7 +13,7 @@ function IconButton({
 
     return (
         <button 
-            className="px-4 py-2.5 rounded-[4px] text-white text-[1.05rem]"
+            className="px-4 py-2.5 rounded-[4px] text-white text-[1.05rem] line-clamp-1"
             style={{
                 color,
                 cursor: disabled ? 'not-allowed' : 'pointer',

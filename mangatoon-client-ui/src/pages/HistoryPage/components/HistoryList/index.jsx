@@ -54,7 +54,7 @@ function HistoryList({
 
     return (
         <div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-0">
                 {getHistoriesData.data.rows.map(row => {
                     return (
                         <HistoryItem 

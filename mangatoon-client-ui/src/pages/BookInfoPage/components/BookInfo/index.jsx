@@ -94,8 +94,8 @@ function BookInfo({ data }) {
     }, [])
 
     return (
-        <div className='flex justify-between space-x-8'>
-            <div>
+        <div className='md:flex xl:flex md:justify-between xl:justify-between md:space-x-8 xl:space-x-8'>
+            <div className='sm:flex sm:justify-center'>
                 <img
                     className='rounded-[6px] shadow-[0_0_8px_0_#757575]'
                     src={data.coverImageUrl}
@@ -103,8 +103,8 @@ function BookInfo({ data }) {
                 />
             </div>
 
-            <div className='grow'>
-                <h3 className='text-[1.4rem] font-[350]'>{data.title}</h3>
+            <div className='grow sm:mt-4'>
+                <h3 className='text-[1.4rem] font-[350] sm:text-center'>{data.title}</h3>
 
                 <ul className='space-y-2 mt-3'>
                     <li className='flex justify-between items-center'>
@@ -236,7 +236,7 @@ function BookInfo({ data }) {
                     </li>
 
                     <li className='space-y-3'>
-                        <div className='flex justify-between items-center'>
+                        <div className='flex justify-between items-center leading-8'>
                             <div className='space-x-2 w-40'>
                                 <span>
                                     <i className='fa-regular fa-star'></i>
@@ -296,7 +296,7 @@ function BookInfo({ data }) {
                         : null}
                 </div>
 
-                <div className='flex items-center mt-4 space-x-2'>
+                <div className='md:flex md:items-center md:space-x-2 xl:flex xl:items-center mt-4 xl:space-x-2 sm:grid sm:grid-cols-2 sm:gap-2'>
                     <IconButton
                         onClick={() => {
                             if (firstChapter) {

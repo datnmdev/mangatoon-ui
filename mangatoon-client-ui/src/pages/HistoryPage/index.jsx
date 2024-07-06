@@ -22,7 +22,7 @@ function HistoryPage() {
     }, [deleteAllHistoryDetailStatus])
 
     return (
-        <div className="my-8">
+        <div className="my-8 sm:px-2">
             <div className="container mx-auto">
                 <Topic
                     name={(
