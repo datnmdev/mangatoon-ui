@@ -9,6 +9,7 @@ import IconButton from '../../../IconButton'
 function Bottom() {
     const [genres, setGenres] = useState([])
     const [hidden, setHidden] = useState(true)
+    const [genreHidden, setGenreHidden] = useState(true)
 
     useEffect(() => {
         async function getGenres() {
@@ -29,7 +30,7 @@ function Bottom() {
                 backgroundColor: colors.primaryColor
             }}
         >
-            <div className='flex justify-between items-center md:hidden xl:hidden'>
+            <div className='flex justify-between items-center md:hidden md:container'>
                 <div>
                     <IconButton
                         icon={hidden ? (<i className="fa-solid fa-bars text-[1.4rem]"></i>) : (<i className="fa-solid fa-rectangle-xmark text-[1.8rem]"></i>)}
@@ -47,15 +48,14 @@ function Bottom() {
             </div>
 
             <ul
-                className={
-                    `md:container xl:container md:mx-auto xl:mx-auto font-[500] md:flex xl:flex`
-                    + ` ${hidden ? 'sm:hidden' : 'md:flex xl:flex'}`
-                }
+                className={`md:container md:mx-auto md:flex md:items-center sm:block ${hidden ? 'sm:hidden' : ''} sm:animate-dropdown`}
                 style={{
                     color: colors.textPrimaryColor
                 }}
             >
-                <li>
+                <li
+                    onClick={() => setHidden(true)}
+                >
                     <Link
                         className='block px-6 sm:px-4 py-4 w-full hover:bg-[#F29C56]'
                         to={location.homePage()}
@@ -64,17 +64,22 @@ function Bottom() {
                     </Link>
                 </li>
 
-                <li className='group/parent hover:bg-[#F29C56] select-none'>
-                    <div className='px-6 py-4 sm:px-4 space-x-1'>
+                <li
+                    className='hover:bg-[#F29C56] select-none'
+                >
+                    <div
+                        className='px-6 py-4 sm:px-4 space-x-1 cursor-pointer'
+                        onClick={() => setGenreHidden(!genreHidden)}
+                    >
                         <span>Thể Loại</span>
                         <span>
                             <i className="fa-solid fa-caret-down"></i>
                         </span>
                     </div>
 
-                    {genres
-                        && (
-                            <div className='hidden group-hover/parent:block'>
+                    {genres && !genreHidden
+                        ? (
+                            <div>
                                 <GenreDetail
                                     data={genres.map(genre => ({
                                         name: genre.name,
@@ -82,11 +87,13 @@ function Bottom() {
                                     }))}
                                 />
                             </div>
-
-                        )}
+                        )
+                        : null}
                 </li>
 
-                <li>
+                <li
+                    onClick={() => setHidden(true)}
+                >
                     <Link
                         to={location.rankingPage()}
                         className='block px-6 sm:px-4 py-4 w-full hover:bg-[#F29C56]'
@@ -100,7 +107,9 @@ function Bottom() {
                     </Link>
                 </li>
 
-                <li>
+                <li
+                    onClick={() => setHidden(true)}
+                >
                     <Link
                         to={location.historyPage()}
                         className='block px-6 sm:px-4 py-4 w-full hover:bg-[#F29C56]'
@@ -109,7 +118,9 @@ function Bottom() {
                     </Link>
                 </li>
 
-                <li>
+                <li
+                    onClick={() => setHidden(true)}
+                >
                     <Link
                         to={location.followPage()}
                         className='block px-6 sm:px-4 py-4 w-full hover:bg-[#F29C56]'

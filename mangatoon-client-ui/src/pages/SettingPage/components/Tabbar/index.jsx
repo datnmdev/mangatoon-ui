@@ -17,7 +17,7 @@ function Tabbar({
     }, [activeTab])
 
     return (
-        <ul>
+        <ul className="sm:flex sm:mb-4 md:block md:mb-0">
             <li
                 className={
                     "py-2 space-x-2 cursor-pointer flex items-center px-4 rounded-[4px]"

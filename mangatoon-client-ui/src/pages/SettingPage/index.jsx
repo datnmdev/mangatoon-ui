@@ -9,8 +9,8 @@ function SettingPage() {
 
     return (
         <div className="my-8">
-            <div className="container mx-auto bg-white flex justify-between rounded-[4px] p-8 space-x-8">
-                <div className="w-[290px]">
+            <div className="container mx-auto bg-white md:flex md:justify-between rounded-[4px] p-8 md:space-x-8">
+                <div className="min-w-[290px]">
                     <Tabbar
                         value={activeTab}
                         onChange={tab => setActiveTab(tab)}

@@ -71,7 +71,7 @@ function BooksOfGenrePage() {
     }, [filterData, pagination])
 
     return (
-        <div className="py-8">
+        <div className="py-8 sm:px-2">
             <div className="container mx-auto space-y-4">
                 <div>
                     {filterData.genre.name

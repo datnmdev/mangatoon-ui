@@ -74,7 +74,7 @@ function Filter({
                     Tình trạng
                 </div>
 
-                <div className="flex items-center space-x-2">
+                <div className="md:grid md:grid-cols-3 sm:grid-cols-1 gap-2 sm:space-y-2 md:space-y-0">
                     <BorderedButton
                         active={data.status === 1}
                         onClick={() => setData({

@@ -94,20 +94,20 @@ function BookInfo({ data }) {
     }, [])
 
     return (
-        <div className='md:flex xl:flex md:justify-between xl:justify-between md:space-x-8 xl:space-x-8'>
-            <div className='sm:flex sm:justify-center'>
+        <div className='md:flex md:justify-between md:space-x-8'>
+            <div>
                 <img
-                    className='rounded-[6px] shadow-[0_0_8px_0_#757575]'
+                    className='rounded-[6px] shadow-[0_0_8px_0_#757575] mx-auto'
                     src={data.coverImageUrl}
                     alt={data.title}
                 />
             </div>
 
             <div className='grow sm:mt-4'>
-                <h3 className='text-[1.4rem] font-[350] sm:text-center'>{data.title}</h3>
+                <h3 className='text-[1.4rem] font-[350] sm:text-center md:text-left'>{data.title}</h3>
 
                 <ul className='space-y-2 mt-3'>
-                    <li className='flex justify-between items-center'>
+                    <li className='flex items-center'>
                         <div className='space-x-2 w-40'>
                             <span>
                                 <i className='fa-solid fa-plus'></i>
@@ -116,7 +116,7 @@ function BookInfo({ data }) {
                             <span>Tên khác</span>
                         </div>
 
-                        <div className='grow'>
+                        <div>
                             {alias
                                 ? (
                                     alias.length > 0
@@ -133,7 +133,7 @@ function BookInfo({ data }) {
                         </div>
                     </li>
 
-                    <li className='flex justify-between items-center'>
+                    <li className='flex items-center'>
                         <div className='space-x-2 w-40'>
                             <span>
                                 <i className='fa-solid fa-user'></i>
@@ -142,7 +142,7 @@ function BookInfo({ data }) {
                             <span>Tác giả</span>
                         </div>
 
-                        <div className='grow'>
+                        <div>
                             {storyAuthor
                                 ? (
                                     storyAuthor.length > 0
@@ -179,7 +179,7 @@ function BookInfo({ data }) {
                         </div>
                     </li>
 
-                    <li className='flex justify-between items-center'>
+                    <li className='flex items-center'>
                         <div className='space-x-2 w-40'>
                             <span>
                                 <i className='fa-solid fa-rss'></i>
@@ -188,14 +188,14 @@ function BookInfo({ data }) {
                             <span>Tình trạng</span>
                         </div>
 
-                        <div className='grow'>
+                        <div>
                             {data.status === IN_PROGRESS && 'Đang Tiến Hành'}
                             {data.status === SUSPENDED && 'Đang Tạm Hoãn'}
                             {data.status === FINISHED && 'Đã Hoàn Thành'}
                         </div>
                     </li>
 
-                    <li className='flex justify-between items-center'>
+                    <li className='flex items-center'>
                         <div className='space-x-2 w-40'>
                             <span>
                                 <i className='fa-solid fa-heart'></i>
@@ -204,7 +204,7 @@ function BookInfo({ data }) {
                             <span>Lượt theo dõi</span>
                         </div>
 
-                        <div className='grow'>
+                        <div>
                             {getFollowCountStatus === PENDING || !getFollowCountData?.data
                                 ? (
                                     <Skeleton variant='rounded' animation='wave'>
@@ -217,7 +217,7 @@ function BookInfo({ data }) {
                         </div>
                     </li>
 
-                    <li className='flex justify-between items-center'>
+                    <li className='flex items-center'>
                         <div className='space-x-2 w-40'>
                             <span>
                                 <i className='fa-regular fa-eye'></i>
@@ -226,7 +226,7 @@ function BookInfo({ data }) {
                             <span>Lượt xem</span>
                         </div>
 
-                        <div className='grow'>
+                        <div>
                             {viewCount != null
                                 ? (
                                     <span>{viewCount}</span>
@@ -236,7 +236,7 @@ function BookInfo({ data }) {
                     </li>
 
                     <li className='space-y-3'>
-                        <div className='flex justify-between items-center leading-8'>
+                        <div className='flex items-center leading-8'>
                             <div className='space-x-2 w-40'>
                                 <span>
                                     <i className='fa-regular fa-star'></i>
@@ -245,7 +245,7 @@ function BookInfo({ data }) {
                                 <span>Đánh giá</span>
                             </div>
 
-                            <div className='grow'>
+                            <div>
                                 {getRatingInfoOfStoryStatus === PENDING || !getRatingInfoOfStoryData?.data
                                     ? (
                                         <Skeleton 

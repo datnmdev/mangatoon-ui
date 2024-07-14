@@ -29,10 +29,10 @@ function InlineWindow({
     }
 
     return (
-        <div className="fixed w-full h-[100vh] top-0 left-0 z-[1000]">
+        <div className="fixed w-full h-[100vh] top-0 left-0 z-[999999]">
             <div className="absolute top-0 left-0 w-full h-full bg-[#e8ebed66]"></div>
 
-            <div className="absolute w-full h-full flex justify-center items-center z-[1]">
+            <div className="absolute w-full h-full flex justify-center items-center z-[9999]">
                 <div className="animate-fadeIn">
                     <Window
                         title={title}

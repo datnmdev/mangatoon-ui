@@ -3,8 +3,8 @@ import NewlyUpdatedStoryList from './components/NewlyUpdatedStoryList'
 
 function HomePage() {
     return (
-        <div className='my-8 sm:px-2'>
-            <div className='container mx-auto'>
+        <div className='my-8 sm:px-2 md:px-0'>
+            <div className='md:container md:mx-auto'>
                 <Topic 
                     name='Truyện Mới Cập Nhật'
                 >

@@ -5,18 +5,8 @@ export default {
   content: ['./src/**/*.{html,js,jsx}'],
   theme: {
     extend: {
-      keyframes:{
-        '0%': {
-          height: '0',
-          opacity: '0'
-        },
-        '100%': {
-          height: '100%',
-          opacity: '1'
-        }
-      },
       animation: {
-        dropDown: 'dropDown 2s ease-out forwards' 
+        dropdown: 'dropdown 0.3s ease-out forwards' 
       }
     },
     screens: {

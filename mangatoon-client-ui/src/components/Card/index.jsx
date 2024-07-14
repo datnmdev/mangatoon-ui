@@ -30,7 +30,7 @@ function Card({ data }) {
                 <div>
                     <Link to={location.bookInfoPage(data)}>
                         <img
-                            className='rounded-[4px]'
+                            className='rounded-[4px] w-full h-full object-cover object-center'
                             src={data.coverImageUrl ?? ''}
                             alt={data.title}
                         />
