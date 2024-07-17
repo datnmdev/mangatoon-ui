@@ -1,31 +1,26 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import LoginPage from "../pages/LoginPage"
-import ErrorPage from "../pages/ErrorPage"
-import ManagePage from "../pages/ManagePage"
-import CommonLayout from "../layouts/CommonLayout"
+import { RouterProvider } from "react-router-dom"
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <CommonLayout />,
+        element: (
+            <CommonLayout
+                header={(<Header />)}
+                content={(<Outlet />)}
+                footer={(<Footer />)}
+            />
+        ),
         errorElement: <ErrorPage />,
         children: [
-            {
-                index: true,
-                element: <LoginPage />,
-            },
-            {
-                path: '/manage',
-                element: <ManagePage />
-            }
+    
         ]
     }
 ])
 
-function Router() {
+function AppRouter() {
     return (
         <RouterProvider router={router} />
     )
 }
 
-export default Router
+export default AppRouter

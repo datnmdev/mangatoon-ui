@@ -1,27 +1,26 @@
-import { useSelector } from "react-redux";
-import "./App.css";
-import Spinner from "./components/Spinner";
-import Router from "./routers";
-import { loaderSelectors } from "./features/loader/loaderSlice";
+import { useDispatch } from 'react-redux'
+import './App.css'
+import AppRouter from './routers'
+import { useEffect } from 'react'
+import { userActions } from './features/user.feature'
+import ToastContainer from './components/ToastContainer'
 
-export default function App() {
-  const isLoading = useSelector(loaderSelectors.selectPageLoaderVisible)
+function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const tokens = localStorage.getItem('tokens')
+    if (tokens) {
+      dispatch(userActions.addTokens(JSON.parse(tokens)))
+    }
+  }, [])
 
   return (
     <div>
-      <Router />
-
-      {isLoading
-        ? (
-          <div className="fixed top-0 left-0 w-full h-[100vh] z-50">
-            <div className="absolute top-0 left-0 w-full h-full bg-[rgba(245,241,241,0.6)]"></div>
-            <div className="h-full flex justify-center items-center">
-              <Spinner />
-            </div>
-          </div>
-        ) 
-        : null}
-
+      <AppRouter />
+      <ToastContainer />
     </div>
   )
 }
+
+export default App

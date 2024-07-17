@@ -1,11 +1,18 @@
-import { Outlet } from "react-router-dom"
-import Authentication from "../../components/Authentication"
-
-function CommonLayout() {
+function CommonLayout({ header, content, footer }) {
     return (
-        <Authentication>
-            <Outlet />
-        </Authentication>
+        <div>
+            <div>
+                {header}
+            </div>
+
+            <div>
+                {content}
+            </div>
+
+            <div>
+                {footer}
+            </div>
+        </div>
     )
 }
 
