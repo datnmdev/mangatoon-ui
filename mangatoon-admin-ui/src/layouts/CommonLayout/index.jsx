@@ -1,7 +1,7 @@
-function HomePageLayout({ header, content, footer }) {
+function CommonLayout({ header, content, footer }) {
     return (
         <div 
-            className="min-h-[100vh] flex flex-col"
+            className="flex flex-col min-h-[100vh]"
             style={{
                 background: "url('/imgs/bg.jpg') no-repeat center center/cover"
             }}
@@ -21,4 +21,4 @@ function HomePageLayout({ header, content, footer }) {
     )
 }
 
-export default HomePageLayout
+export default CommonLayout

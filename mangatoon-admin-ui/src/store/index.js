@@ -4,7 +4,7 @@ import toastReducer from '../features/toast.feature'
 
 export default configureStore({
     reducer: {
-        // user: userReducer,
+        user: userReducer,
         toast: toastReducer
     }
 })

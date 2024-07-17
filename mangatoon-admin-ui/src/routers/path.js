@@ -4,5 +4,8 @@ export default {
     },
     signInPage: () => {
         return '/sign-in'
+    },
+    storyManagementPage: () => {
+        return '/story-management'
     }
 }

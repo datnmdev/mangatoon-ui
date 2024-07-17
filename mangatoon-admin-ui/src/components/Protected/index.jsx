@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { userSelectors } from "../../features/user.feature"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import location from "../../routers/location"
+import path from "../../routers/path"
 
 function Protected({ 
     children,
@@ -13,7 +13,7 @@ function Protected({
 
     useEffect(() => {
         if (enable && !localStorage.getItem('tokens') && !tokens) {
-            navigate(location.signInPage())
+            navigate(path.signInPage())
         }
     }, [tokens, enable])
 

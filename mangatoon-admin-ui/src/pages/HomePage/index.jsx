@@ -12,7 +12,7 @@ function HomePage() {
                 
                 <div className="mt-6">
                     <BorderedButton
-                        onClick={() => navigate(path.signInPage())}
+                        onClick={() => navigate(path.storyManagementPage())}
                     >
                         Đi ngay!
                     </BorderedButton>
