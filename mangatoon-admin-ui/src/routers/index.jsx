@@ -7,6 +7,7 @@ import CommonLayout from "../layouts/CommonLayout"
 import SignInPage from "../pages/SignInPage"
 import StoryManagementPage from "../pages/StoryManagementPage"
 import Protected from "../components/Protected"
+import SettingPage from "../pages/SettingPage"
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,17 @@ const router = createBrowserRouter([
                         <CommonLayout
                             header={(<Header />)}
                             content={(<StoryManagementPage />)}
+                        />
+                    </Protected>
+                )
+            },
+            {
+                path: 'setting',
+                element: (
+                    <Protected>
+                        <CommonLayout
+                            header={(<Header />)}
+                            content={(<SettingPage />)}
                         />
                     </Protected>
                 )

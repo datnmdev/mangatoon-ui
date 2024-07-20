@@ -10,7 +10,7 @@ function CommonLayout({ header, content, footer }) {
                 {header}
             </div>
 
-            <div className="grow flex">
+            <div className="grow flex flex-col">
                 {content}
             </div>
 

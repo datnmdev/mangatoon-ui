@@ -7,5 +7,8 @@ export default {
     },
     storyManagementPage: () => {
         return '/story-management'
+    },
+    settingPage: () => {
+        return '/setting'
     }
 }
