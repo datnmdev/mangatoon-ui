@@ -10,19 +10,48 @@ function Header() {
     const tokens = useSelector(userSelectors.selectTokens)
 
     return (
-        <div className="flex justify-between px-4 py-6 bg-[rgba(0,0,0,0.02)]">
-            <div>
-                <Link
-                    to={path.homePage()}
-                >
-                    <img
-                        src="/logos/mangatoon.png"
-                        alt="Logo"
-                    />
-                </Link>
+        <div className="flex justify-between px-4 bg-[rgba(0,0,0,0.02)] leading-[64px]">
+            <div className="flex items-center space-x-6">
+                <div>
+                    <Link
+                        to={path.homePage()}
+                    >
+                        <img
+                            src="/logos/mangatoon.png"
+                            alt="Logo"
+                        />
+                    </Link>
+                </div>
+
+                <ul className="flex items-center">
+                    <li>
+                        <Link 
+                            className="block text-white font-[500] px-4 leading-[64px] hover:bg-[rgba(0,0,0,0.4)]"
+                            to={path.storyManagementPage()}
+                        >
+                            TRUYỆN
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link 
+                            className="block text-white font-[500] px-4 leading-[64px] hover:bg-[rgba(0,0,0,0.4)]"
+                        >
+                            THỂ LOẠI
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link 
+                            className="block text-white font-[500] px-4 leading-[64px] hover:bg-[rgba(0,0,0,0.4)]"
+                        >
+                            TÁC GIẢ
+                        </Link>
+                    </li>
+                </ul>
             </div>
 
-            <div>
+            <div className="flex items-center leading-normal">
                 {!tokens
                     && (
                         <div>
