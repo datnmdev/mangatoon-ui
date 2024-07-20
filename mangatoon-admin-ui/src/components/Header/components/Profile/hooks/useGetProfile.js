@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react"
-import { FAILED, IDLE, PENDING, SUCCEEDED } from "../../../constants/fetchStatus.constant"
-import api from "../../../api"
+import { useDispatch, useSelector } from 'react-redux'
+import { userAsyncThunks, userSelectors } from '../../../../../features/user.feature'
+import { FAILED, IDLE, PENDING, SUCCEEDED } from '../../../../../constants/fetchStatus.constant'
+import { useEffect, useState } from 'react'
 
-function useSignIn(body) {
+function useGetProfile() {
+    const dispatch = useDispatch()
+    const profile = useSelector(userSelectors.selectProfile)
     const [isSubmit, setSubmit] = useState(false)
     const [data, setData] = useState(undefined)
     const [status, setStatus] = useState(IDLE)
@@ -11,12 +14,9 @@ function useSignIn(body) {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.user.signIn(body)
-                setData(response.data)
+                await dispatch(userAsyncThunks.getProfile()).unwrap()
                 setStatus(SUCCEEDED)
             } catch (error) {
-                console.log(error);
-
                 setStatus(FAILED)
             }
         }
@@ -32,6 +32,10 @@ function useSignIn(body) {
         }
     }, [status])
 
+    useEffect(() => {
+        setData(profile)
+    }, [profile])
+
     return {
         data,
         status,
@@ -39,4 +43,4 @@ function useSignIn(body) {
     }
 }
 
-export default useSignIn
+export default useGetProfile

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import api from '../../api'
-import store from '../../store'
 import { userActions } from '../../features/user.feature'
+import { store } from '../../main'
 
 export default function axiosInstance() {
   const axiosInstance = axios.create({

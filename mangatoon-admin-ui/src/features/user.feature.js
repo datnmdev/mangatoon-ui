@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import api from '../api'
-import store from '../store'
+import { store } from '../main'
 
 const initialState = {
     tokens: null,
@@ -41,7 +41,7 @@ const userSlice = createSlice({
             state.accountInfo = null
         }
     },
-    extraReducers: builder => [
+    extraReducers: builder => {
         builder
             .addCase(userAsyncThunks.getProfile.fulfilled, (state, action) => {
                 state.profile = action.payload.data
@@ -49,7 +49,7 @@ const userSlice = createSlice({
             .addCase(userAsyncThunks.getAccountInfo.fulfilled, (state, action) => {
                 state.accountInfo = action.payload.data
             })
-    ]
+    }
 })
 
 export const userActions = userSlice.actions

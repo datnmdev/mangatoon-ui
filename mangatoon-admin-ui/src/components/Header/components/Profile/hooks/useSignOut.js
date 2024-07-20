@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react"
-import { FAILED, IDLE, PENDING, SUCCEEDED } from "../../../constants/fetchStatus.constant"
-import api from "../../../api"
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { FAILED, IDLE, PENDING, SUCCEEDED } from '../../../../../constants/fetchStatus.constant'
+import { userSelectors } from '../../../../../features/user.feature'
+import api from '../../../../../api'
 
-function useSignIn(body) {
+function useSignOut() {
     const [isSubmit, setSubmit] = useState(false)
     const [data, setData] = useState(undefined)
     const [status, setStatus] = useState(IDLE)
+    const tokens = useSelector(userSelectors.selectTokens)
 
     useEffect(() => {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.user.signIn(body)
+                const response = await api.user.signOut(tokens)
                 setData(response.data)
                 setStatus(SUCCEEDED)
             } catch (error) {
-                console.log(error);
-
                 setStatus(FAILED)
             }
         }
@@ -39,4 +40,4 @@ function useSignIn(body) {
     }
 }
 
-export default useSignIn
+export default useSignOut
