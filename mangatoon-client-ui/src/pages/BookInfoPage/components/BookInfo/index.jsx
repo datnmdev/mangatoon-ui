@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import api from '../../../../api'
 import { Link, useNavigate } from 'react-router-dom'
 import { FINISHED, IN_PROGRESS, SUSPENDED } from './constants'
@@ -21,6 +21,7 @@ function BookInfo({ data }) {
     const { data: getRatingInfoOfStoryData, status: getRatingInfoOfStoryStatus, setSubmit: setRatingInfoOfStorySubmit } = useGetRatingInfoOfStory(data.id)
     const [storyGenres, setStoryGenres] = useState(null)
     const [firstChapter, setFirstChapter] = useState(null)
+    const coverImageRef = useRef(null)
 
     useEffect(() => {
         async function getAlias() {
@@ -93,11 +94,31 @@ function BookInfo({ data }) {
         setRatingInfoOfStorySubmit(true)
     }, [])
 
+    useEffect(() => {
+        async function getImage() {
+            try {
+                const response = await api.story.getImage({
+                    url: data.coverImageUrl
+                })
+                const imageBlob = response.data
+                const imageUrl = URL.createObjectURL(imageBlob)
+                coverImageRef.current.src = imageUrl
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+        }
+
+        if (!data.coverImageUrl.startsWith('https://storage.googleapis.com')) {
+            getImage()
+        }
+    }, [])
+
     return (
         <div className='md:flex md:justify-between md:space-x-8'>
             <div>
                 <img
-                    className='rounded-[6px] shadow-[0_0_8px_0_#757575] mx-auto'
+                    ref={coverImageRef}
+                    className='w-[192px] h-[250px] rounded-[6px] shadow-[0_0_8px_0_#757575] mx-auto'
                     src={data.coverImageUrl}
                     alt={data.title}
                 />

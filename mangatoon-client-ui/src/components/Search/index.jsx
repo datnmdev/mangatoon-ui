@@ -7,17 +7,20 @@ function Search({
         primaryColor: colors.primaryColor,
         textColor: colors.textColor
     },
-    onChange,
-    onSubmit
+    sx = {},
+    onChange
 }) {
     const [inputStyle, setInputStyle] = useState({})
 
     return (
-        <div className="min-w-[280px] relative">
+        <div className="min-w-[360px] relative">
             <input
                 type="text"
-                className="px-4 py-2 border-[2px] rounded-[16px] pr-[48px] w-full"
-                style={inputStyle}
+                className="px-4 py-2 border-[2px] rounded-[8px] pr-[48px] w-full"
+                style={{
+                    ...inputStyle,
+                    ...sx
+                }}
                 placeholder={placeholder}
                 onFocus={() => setInputStyle({
                     outlineColor: theme.primaryColor

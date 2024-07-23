@@ -6,6 +6,7 @@ import location from '../../../../routers/location'
 import Profile from './components/Profile'
 import { useSelector } from 'react-redux'
 import { userSelectors } from '../../../../features/user.feature'
+import StorySearcher from './components/StorySearcher'
 
 function Top() {
     const navigate = useNavigate()
@@ -37,9 +38,7 @@ function Top() {
                 </div> */}
 
                 <div className='shrink-0 sm:hidden md:block xl:block'>
-                    <Search
-                        placeholder='Bạn muốn tìm truyện gì?'
-                    />
+                    <StorySearcher />
                 </div>
             </div>
 

@@ -2,10 +2,11 @@ import { Rating, Skeleton } from "@mui/material"
 import useGetRatingOfStory from "./hooks/useGetRatingOfStory"
 import useGetViewCount from "./hooks/useGetViewCount"
 import useGetFollowCountOfStory from "./hooks/useGetFollowCountOfStory"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { PENDING } from "../../constants/fetchStatus.constant"
 import { Link } from "react-router-dom"
 import location from "../../routers/location"
+import api from "../../api"
 
 function TopItem({
     number,
@@ -15,6 +16,7 @@ function TopItem({
     const { data: getRatingOfStoryData, status: getRatingOfStoryStatus, setSubmit: setGetRatingOfStorySubmit } = useGetRatingOfStory(data.id)
     const { data: getFollowCountOfStoryData, status: getFollowCountOfStoryStatus, setSubmit: setGetFollowCountOfStorySubmit } = useGetFollowCountOfStory(data.id)
     const { data: getViewCountData, status: getViewCountStatus, setSubmit: setGetViewCountSubmit } = useGetViewCount(data.id)
+    const coverImageRef = useRef(null)
 
     useEffect(() => {
         setGetRatingOfStorySubmit(true)
@@ -22,7 +24,24 @@ function TopItem({
         setGetViewCountSubmit(true)
     }, [])
 
-    console.log((Math.ceil(getRatingOfStoryData?.data?.rating * 5 * 5 * 10) / 10).toFixed(1));
+    useEffect(() => {
+        async function getImage() {
+            try {
+                const response = await api.story.getImage({
+                    url: data.coverImageUrl
+                })
+                const imageBlob = response.data
+                const imageUrl = URL.createObjectURL(imageBlob)
+                coverImageRef.current.src = imageUrl
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+        }
+
+        if (!data.coverImageUrl.startsWith('https://storage.googleapis.com')) {
+            getImage()
+        }
+    }, [])
 
     return (
         <div className="flex justify-between items-center space-x-2">
@@ -42,6 +61,7 @@ function TopItem({
                 <div className="flex space-x-2 items-center">
                     <div>
                         <img
+                            ref={coverImageRef}
                             className="w-12 h-12 object-cover object-center rounded-[4px]"
                             src={data.coverImageUrl}
                             alt={data.title}

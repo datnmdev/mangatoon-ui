@@ -19,13 +19,16 @@ function Image({
             }
         }
 
-        getImage()
+        if (!chapterImage.path.startsWith('https://storage.googleapis.com')) {
+            getImage()
+        }
     }, [])
 
     return (
         <div>
             <img
                 ref={imgRef}
+                src={chapterImage.path}
                 alt={alt}
             />
         </div>

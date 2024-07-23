@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import IconButton from '../../../../components/IconButton';
 import location from '../../../../routers/location';
 import useGetFollowCount from './hooks/useGetFollowCount';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { PENDING, SUCCEEDED } from '../../../../constants/fetchStatus.constant';
 import { Skeleton } from '@mui/material';
 import useDeleteFollow from './hooks/useDeleteFollow';
+import api from '../../../../api';
 
 function FollowItem({
     data,
@@ -15,6 +16,7 @@ function FollowItem({
     const { data: deleteFollowData, status: deleteFollowStatus, setSubmit: setDeleteFollowSubmit } = useDeleteFollow({
         storyId: data.id
     })
+    const coverImageRef = useRef(null)
 
     useEffect(() => {
         setGetFollowCountSubmit(true)
@@ -28,10 +30,30 @@ function FollowItem({
         }
     }, [deleteFollowStatus])
 
+    useEffect(() => {
+        async function getImage() {
+            try {
+                const response = await api.story.getImage({
+                    url: data.coverImageUrl
+                })
+                const imageBlob = response.data
+                const imageUrl = URL.createObjectURL(imageBlob)
+                coverImageRef.current.src = imageUrl
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+        }
+
+        if (!data.coverImageUrl.startsWith('https://storage.googleapis.com')) {
+            getImage()
+        }
+    }, [])
+
     return (
         <div className="flex justify-between items-center bg-white rounded-[6px] overflow-hidden p-2 space-x-4">
             <div>
                 <img
+                    ref={coverImageRef}
                     className="w-[64px] h-[84px] rounded-[6px]"
                     src={data.coverImageUrl}
                     alt={data.title}
@@ -55,7 +77,7 @@ function FollowItem({
                                 </Skeleton>
                             )
                             : (
-                                <span className="text-[0.95rem]">Tổng số lượt theo dõi: { getFollowCountData.data.followCount }</span>
+                                <span className="text-[0.95rem]">Tổng số lượt theo dõi: {getFollowCountData.data.followCount}</span>
                             )}
                     </div>
                 </div>
