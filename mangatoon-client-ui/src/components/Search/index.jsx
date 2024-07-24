@@ -1,16 +1,20 @@
 import { useState } from "react"
-import colors from "../../assets/colors"
 
 function Search({
     placeholder = '',
-    theme = {
-        primaryColor: colors.primaryColor,
-        textColor: colors.textColor
-    },
+    onFocus = e => {},
+    onBlur = e => {},
     sx = {},
     onChange
 }) {
     const [inputStyle, setInputStyle] = useState({})
+
+    function _onFocus() {
+        setInputStyle({
+            outlineColor: '#F08121'
+        })
+        onFocus()
+    }
 
     return (
         <div className="min-w-[360px] relative">
@@ -22,9 +26,8 @@ function Search({
                     ...sx
                 }}
                 placeholder={placeholder}
-                onFocus={() => setInputStyle({
-                    outlineColor: theme.primaryColor
-                })}
+                onFocus={_onFocus}
+                onBlur={onBlur}
                 onChange={onChange}
                 required={true}
             />
@@ -32,7 +35,7 @@ function Search({
             <button 
                 className="absolute top-0 right-0 w-[48px] h-full text-[1.2rem]"
                 style={{
-                    color: theme.primaryColor
+                    color: 'white'
                 }}
             >
                 <i className="fa-solid fa-magnifying-glass"></i>
