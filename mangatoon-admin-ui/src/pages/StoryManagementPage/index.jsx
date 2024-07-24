@@ -5,10 +5,13 @@ import StoryList from './components/StoryList'
 import { DELETED, FINISHED, IN_PROGRESS, SUSPENDED, UNPUBLISHED } from './components/StoryList/constants'
 import useSearchStory from './hooks/useSearchStory'
 import { useEffect } from 'react'
-import Filter from '../../components/Filter'
 import { CHECKBOX } from '../../components/Filter/components/constants'
+import Filter from '../../components/Filter'
+import path from '../../routers/path'
+import { useNavigate } from 'react-router-dom'
 
 function StoryManagementPage() {
+    const navigate = useNavigate()
     const [pagination, setPagination] = useState({
         page: 1,
         limit: 20
@@ -22,8 +25,6 @@ function StoryManagementPage() {
     const [refetch, setRefetch] = useState({
         value: false
     })
-
-    console.log(queries.keyword);
 
     useEffect(() => {
         if (refetch.value) {
@@ -50,6 +51,7 @@ function StoryManagementPage() {
                         icon={(<i className="fa-solid fa-plus"></i>)}
                         content="Thêm"
                         backgroundColor="#21C55D"
+                        onClick={() => navigate(path.addStoryPage())}
                     />
 
                     <IconButton

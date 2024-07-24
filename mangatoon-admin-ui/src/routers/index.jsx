@@ -1,4 +1,4 @@
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import ErrorPage from "../pages/ErrorPage"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -8,6 +8,7 @@ import SignInPage from "../pages/SignInPage"
 import StoryManagementPage from "../pages/StoryManagementPage"
 import Protected from "../components/Protected"
 import SettingPage from "../pages/SettingPage"
+import AddStoryPage from "../pages/AddStoryPage"
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,17 @@ const router = createBrowserRouter([
                         <CommonLayout
                             header={(<Header />)}
                             content={(<StoryManagementPage />)}
+                        />
+                    </Protected>
+                )
+            },
+            {
+                path: 'story-management/add',
+                element: (
+                    <Protected>
+                        <CommonLayout
+                            header={(<Header />)}
+                            content={(<AddStoryPage />)}
                         />
                     </Protected>
                 )

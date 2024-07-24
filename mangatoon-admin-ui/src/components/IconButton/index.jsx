@@ -26,7 +26,7 @@ function IconButton({
                 {icon}
             </span>
 
-            <span className="ml-1">{content}</span>
+            <span className="ml-1 line-clamp-1">{content}</span>
         </button>
     )
 }

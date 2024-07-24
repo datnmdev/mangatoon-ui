@@ -8,6 +8,9 @@ export default {
     storyManagementPage: () => {
         return '/story-management'
     },
+    addStoryPage: () => {
+        return '/story-management/add'
+    },
     settingPage: () => {
         return '/setting'
     }

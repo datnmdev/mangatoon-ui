@@ -20,6 +20,6 @@ export default {
         return axiosInstance().post(`/story-api/story/${data.id}`, data)
     },
     createStory: (data) => {
-        return axiosInstance().post('story-api/story', data)
+        return axiosInstance().post('/story-api/story', data)
     }
 }
