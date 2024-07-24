@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { FAILED, IDLE, PENDING, SUCCEEDED } from "../../../constants/fetchStatus.constant"
-import api from "../../../api"
+import { FAILED, IDLE, PENDING, SUCCEEDED } from "../../../../../constants/fetchStatus.constant"
+import api from "../../../../../api"
 
-function useSignIn(body) {
+function useDeleteStory(storyData) {
     const [isSubmit, setSubmit] = useState(false)
     const [data, setData] = useState(undefined)
     const [status, setStatus] = useState(IDLE)
@@ -11,7 +11,7 @@ function useSignIn(body) {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.user.signIn(body)
+                const response = await api.story.updateStory(storyData)
                 setData(response.data)
                 setStatus(SUCCEEDED)
             } catch (error) {
@@ -37,4 +37,4 @@ function useSignIn(body) {
     }
 }
 
-export default useSignIn
+export default useDeleteStory
