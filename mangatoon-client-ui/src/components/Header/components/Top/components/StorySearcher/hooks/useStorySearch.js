@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { FAILED, IDLE, PENDING, SUCCEEDED } from "../../../../../../../constants/fetchStatus.constant"
 import api from "../../../../../../../api"
 
-function useStorySearch(keyword) {
+function useStorySearch(queries) {
     const [isSubmit, setSubmit] = useState(false)
     const [data, setData] = useState(undefined)
     const [status, setStatus] = useState(IDLE)
@@ -11,7 +11,7 @@ function useStorySearch(keyword) {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.story.search(keyword)
+                const response = await api.story.search(queries)
                 setData(response.data)
                 setStatus(SUCCEEDED)
             } catch (error) {

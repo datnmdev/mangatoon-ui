@@ -624,28 +624,16 @@ video {
   top: 2rem;
 }
 
+.top-\[calc\(100\%\+4px\)\] {
+  top: calc(100% + 4px);
+}
+
 .top-\[calc\(100\%\+8px\)\] {
   top: calc(100% + 8px);
 }
 
 .top-full {
   top: 100%;
-}
-
-.top-\[calc\] {
-  top: calc;
-}
-
-.top-\[calc\(100\%\)\] {
-  top: calc(100%);
-}
-
-.top-\[calc\(100\%\+\)\] {
-  top: calc(100% + );
-}
-
-.top-\[calc\(100\%\+4px\)\] {
-  top: calc(100% + 4px);
 }
 
 .z-10 {
@@ -790,6 +778,14 @@ video {
   height: 100vh;
 }
 
+.h-\[234px\] {
+  height: 234px;
+}
+
+.h-\[250px\] {
+  height: 250px;
+}
+
 .h-\[60px\] {
   height: 60px;
 }
@@ -802,22 +798,6 @@ video {
   height: 100%;
 }
 
-.h-\[\] {
-  height: ;
-}
-
-.h-\[234px\] {
-  height: 234px;
-}
-
-.h-\[250px\] {
-  height: 250px;
-}
-
-.h-\[64px\] {
-  height: 64px;
-}
-
 .max-h-\[240px\] {
   max-height: 240px;
 }
@@ -826,12 +806,12 @@ video {
   max-height: 400px;
 }
 
-.max-h-\[500px\] {
-  max-height: 500px;
-}
-
 .max-h-\[480px\] {
   max-height: 480px;
+}
+
+.max-h-\[500px\] {
+  max-height: 500px;
 }
 
 .min-h-\[240px\] {
@@ -844,22 +824,6 @@ video {
 
 .min-h-\[40px\] {
   min-height: 40px;
-}
-
-.min-h-\[\] {
-  min-height: ;
-}
-
-.min-h-\[48px\] {
-  min-height: 48px;
-}
-
-.min-h-\[48pxpx\] {
-  min-height: 48pxpx;
-}
-
-.min-h-\[480px\] {
-  min-height: 480px;
 }
 
 .w-10 {
@@ -898,6 +862,14 @@ video {
   width: 160px;
 }
 
+.w-\[180px\] {
+  width: 180px;
+}
+
+.w-\[192px\] {
+  width: 192px;
+}
+
 .w-\[220px\] {
   width: 220px;
 }
@@ -918,22 +890,6 @@ video {
   width: 100%;
 }
 
-.w-\[180px\] {
-  width: 180px;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[192px\] {
-  width: 192px;
-}
-
-.w-\[64\] {
-  width: 64;
-}
-
 .min-w-32 {
   min-width: 8rem;
 }
@@ -946,10 +902,6 @@ video {
   min-width: 220px;
 }
 
-.min-w-\[280px\] {
-  min-width: 280px;
-}
-
 .min-w-\[290px\] {
   min-width: 290px;
 }
@@ -958,16 +910,12 @@ video {
   min-width: 340px;
 }
 
-.min-w-\[420px\] {
-  min-width: 420px;
-}
-
-.min-w-\[320px\] {
-  min-width: 320px;
-}
-
 .min-w-\[360px\] {
   min-width: 360px;
+}
+
+.min-w-\[420px\] {
+  min-width: 420px;
 }
 
 .max-w-\[720px\] {
@@ -1151,10 +1099,6 @@ video {
   border-radius: 12px;
 }
 
-.rounded-\[16px\] {
-  border-radius: 16px;
-}
-
 .rounded-\[4px\] {
   border-radius: 4px;
 }
@@ -1175,33 +1119,20 @@ video {
   border-radius: 0.125rem;
 }
 
-.rounded-\[px\] {
-  border-radius: px;
-}
-
-.rounded-b {
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+.rounded-bl-\[12px\] {
+  border-bottom-left-radius: 12px;
 }
 
 .rounded-bl-\[4px\] {
   border-bottom-left-radius: 4px;
 }
 
-.rounded-br-\[4px\] {
-  border-bottom-right-radius: 4px;
-}
-
-.rounded-bl {
-  border-bottom-left-radius: 0.25rem;
-}
-
-.rounded-bl-\[12px\] {
-  border-bottom-left-radius: 12px;
-}
-
 .rounded-br-\[12px\] {
   border-bottom-right-radius: 12px;
+}
+
+.rounded-br-\[4px\] {
+  border-bottom-right-radius: 4px;
 }
 
 .border {
@@ -1226,10 +1157,6 @@ video {
 
 .border-t-0 {
   border-top-width: 0px;
-}
-
-.border-b-0 {
-  border-bottom-width: 0px;
 }
 
 .border-\[\#F08121\] {
@@ -1417,10 +1344,6 @@ video {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.font-\[\] {
-  font-family: ;
-}
-
 .text-\[0\.8rem\] {
   font-size: 0.8rem;
 }
@@ -1585,64 +1508,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-sm {
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0_\] {
-  --tw-shadow: 0 0;
-  --tw-shadow-colored: 0 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0_8\] {
-  --tw-shadow: 0 0 8;
-  --tw-shadow-colored: 0 0 8 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0_8px_\] {
-  --tw-shadow: 0 0 8px;
-  --tw-shadow-colored: 0 0 8px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0_8px_rgba\(\)\] {
-  --tw-shadow: 0 0 8px rgba();
-  --tw-shadow-colored: 0 0 8px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0_8px_rgba\(9\)\] {
-  --tw-shadow: 0 0 8px rgba(9);
-  --tw-shadow-colored: 0 0 8px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0_8px_rgba\(0\2c 0\2c 0\2c 0\)\] {
-  --tw-shadow: 0 0 8px rgba(0,0,0,0);
-  --tw-shadow-colored: 0 0 8px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0_8px_rgba\(0\2c 0\2c 0\2c 0\.4\)\] {
-  --tw-shadow: 0 0 8px rgba(0,0,0,0.4);
-  --tw-shadow-colored: 0 0 8px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[\] {
-  --tw-shadow-color: ;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-\[0_\] {
-  --tw-shadow-color: 0;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1748,10 +1613,6 @@ html {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:text-\[\]:hover {
-  color: ;
 }
 
 .hover\:underline:hover {

@@ -6,7 +6,11 @@ import SearchResult from "./components/SearchResult"
 
 function StorySearcher() {
     const [text, setText] = useState('')
-    const { data, status, setSubmit } = useStorySearch(text)
+    const { data, status, setSubmit } = useStorySearch({
+        keyword: text,
+        page: 1,
+        limit: Number.MAX_SAFE_INTEGER
+    })
 
     useEffect(() => {
         if (status !== PENDING) {

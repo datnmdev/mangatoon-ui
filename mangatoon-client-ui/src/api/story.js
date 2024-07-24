@@ -11,11 +11,9 @@ export default {
             responseType: 'blob'
         })
     },
-    search: (keyword) => {
+    search: (queries) => {
         return axiosInstance().get('/story-api/story/search', {
-            params: {
-                keyword
-            }
+            params: queries
         })
     }
 }
