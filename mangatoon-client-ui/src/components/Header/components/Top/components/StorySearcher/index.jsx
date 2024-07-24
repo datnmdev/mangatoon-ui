@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Search from "../../../../../Search"
 import useStorySearch from "./hooks/useStorySearch"
 import { PENDING } from "../../../../../../constants/fetchStatus.constant"
@@ -12,6 +12,7 @@ function StorySearcher() {
         page: 1,
         limit: 20
     })
+    const searchResultRef = useRef(null)
 
     useEffect(() => {
         if (status !== PENDING) {
@@ -19,12 +20,28 @@ function StorySearcher() {
         }
     }, [text])
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchResultRef.current && !searchResultRef.current.contains(event.target)) {
+                setHidden(true)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+    }, [])
+
     return (
-        <div className="relative">
+        <div
+            ref={searchResultRef}
+            className="relative"
+        >
             <Search
                 placeholder='Bạn muốn tìm truyện gì?'
                 onFocus={() => setHidden(false)}
-                onBlur={() => setHidden(true)}
                 onChange={(e) => setText(e.target.value)}
             />
 
