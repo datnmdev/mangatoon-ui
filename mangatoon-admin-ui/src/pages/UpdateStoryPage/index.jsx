@@ -7,6 +7,7 @@ import { DELETED, FINISHED, IN_PROGRESS, SUSPENDED, UNPUBLISHED } from "../Story
 import useGetCountryById from "./hooks/useGetCountryById"
 import AliasManagement from "./components/AliasManagement"
 import StoryGenreManagement from "./components/StoryGenreManagement"
+import StoryAuthorManagement from "./components/StoryAuthorManagement"
 
 const statusOptions = [
     {
@@ -83,6 +84,15 @@ function UpdateStoryPage() {
                 {getStoryByIdStatus === SUCCEEDED
                     && (
                         <StoryGenreManagement
+                            storyId={storyData.data.rows[0].id}
+                        />
+                    )}
+            </div>
+
+            <div>
+                {getStoryByIdStatus === SUCCEEDED
+                    && (
+                        <StoryAuthorManagement
                             storyId={storyData.data.rows[0].id}
                         />
                     )}
