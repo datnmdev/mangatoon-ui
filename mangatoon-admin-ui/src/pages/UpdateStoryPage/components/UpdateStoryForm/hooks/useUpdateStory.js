@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { FAILED, IDLE, PENDING, SUCCEEDED } from "../../../../../constants/fetchStatus.constant"
 import api from "../../../../../api"
 
-function useDeleteStory(storyData) {
+function useUpdateStory(id, body) {
     const [isSubmit, setSubmit] = useState(false)
     const [data, setData] = useState(undefined)
     const [status, setStatus] = useState(IDLE)
@@ -11,7 +11,7 @@ function useDeleteStory(storyData) {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.story.updateStory(storyData)
+                const response = await api.story.updateStory(id, body)
                 setData(response.data)
                 setStatus(SUCCEEDED)
             } catch (error) {
@@ -37,4 +37,4 @@ function useDeleteStory(storyData) {
     }
 }
 
-export default useDeleteStory
+export default useUpdateStory

@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import Loader from "../../../../components/Loader"
-import { DELETED } from "./constants"
+import { DELETED, UNPUBLISHED } from "./constants"
 import Table from "../../../../components/Table"
 import CoverImage from "./components/CoverImage"
 import StoryStatus from "./components/StoryStatus"
 import moment from "moment"
 import RoundButton from "../../../../components/RoundButton"
-import useDeleteStory from "./hooks/useDeleteStory"
 import { SUCCEEDED } from "../../../../constants/fetchStatus.constant"
+import { useNavigate } from "react-router-dom"
+import path from "../../../../routers/path"
+import useUpdateStory from "./hooks/useUpdateStory"
 
 const headers = [
     'Id',
@@ -27,8 +29,9 @@ function StoryList({
     setPagination,
     setRefetch
 }) {
-    const [deleteStoryReqData, setDeleteStoryReqData] = useState(null)
-    const { data: deleteStoryData, status: deleteStoryStatus, setSubmit: setDeleteStorySubmit } = useDeleteStory(deleteStoryReqData)
+    const navigate = useNavigate()
+    const [updateStoryReqData, setUpdateStoryReqData] = useState(null)
+    const { data: updateStoryData, status: updateStoryStatus, setSubmit: setUpdateStorySubmit } = useUpdateStory(updateStoryReqData)
 
     let _data = []
     if (data) {
@@ -48,39 +51,54 @@ function StoryList({
                 ),
                 moment(row.createdAt).format('DD/MM/YYYY HH:MM:SS'),
                 moment(row.updatedAt).format('DD/MM/YYYY HH:MM:SS'),
-                (<div className="flex justify-center items-center space-x-1">
-                    <RoundButton
+                row.status !== DELETED
+                ? (
+                    <div className="flex justify-center items-center space-x-1">
+                        <RoundButton
+                            onClick={() => navigate(path.updateStoryPage(row.id))}
+                        />
 
-                    />
-
-                    <RoundButton
-                        icon={(<i className="fa-regular fa-trash-can"></i>)}
-                        color="red"
-                        onClick={() => setDeleteStoryReqData({
-                            id: row.id,
-                            status: DELETED
-                        })}
-                    />
-                </div>)
+                        <RoundButton
+                            icon={(<i className="fa-regular fa-trash-can"></i>)}
+                            color="red"
+                            onClick={() => setUpdateStoryReqData({
+                                id: row.id,
+                                status: DELETED
+                            })}
+                        />
+                    </div>
+                )
+                : (
+                    <div className="flex justify-center items-center space-x-1">
+                        <RoundButton
+                            icon={(<img src="/imgs/redo.png"/>)}
+                            color="red"
+                            onClick={() => setUpdateStoryReqData({
+                                id: row.id,
+                                status: UNPUBLISHED
+                            })}
+                        />
+                    </div>
+                )
             ]
         })
     }
 
     useEffect(() => {
-        if (deleteStoryReqData) {
-            setDeleteStorySubmit(true)
+        if (updateStoryReqData) {
+            setUpdateStorySubmit(true)
         }
-    }, [deleteStoryReqData])
+    }, [updateStoryReqData])
 
     useEffect(() => {
-        if (deleteStoryStatus === SUCCEEDED) {
-            if (deleteStoryData.data) {
+        if (updateStoryStatus === SUCCEEDED) {
+            if (updateStoryData.data) {
                 setRefetch({
                     value: true
                 })
             }
         }
-    }, [deleteStoryStatus])
+    }, [updateStoryStatus])
 
     return (
         <Loader status={status}>

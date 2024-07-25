@@ -11,6 +11,9 @@ export default {
     addStoryPage: () => {
         return '/story-management/add'
     },
+    updateStoryPage: (storyId) => {
+        return `/story-management/${storyId}/update`
+    },
     settingPage: () => {
         return '/setting'
     }

@@ -9,6 +9,7 @@ import StoryManagementPage from "../pages/StoryManagementPage"
 import Protected from "../components/Protected"
 import SettingPage from "../pages/SettingPage"
 import AddStoryPage from "../pages/AddStoryPage"
+import UpdateStoryPage from "../pages/UpdateStoryPage"
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,17 @@ const router = createBrowserRouter([
                         <CommonLayout
                             header={(<Header />)}
                             content={(<AddStoryPage />)}
+                        />
+                    </Protected>
+                )
+            },
+            {
+                path: 'story-management/:storyId/update',
+                element: (
+                    <Protected>
+                        <CommonLayout
+                            header={(<Header />)}
+                            content={(<UpdateStoryPage />)}
                         />
                     </Protected>
                 )

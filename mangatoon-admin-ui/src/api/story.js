@@ -16,8 +16,8 @@ export default {
             params: keyword
         })
     },
-    updateStory: (data) => {
-        return axiosInstance().post(`/story-api/story/${data.id}`, data)
+    updateStory: (id, data) => {
+        return axiosInstance().post(`/story-api/story/${id}`, data)
     },
     createStory: (data) => {
         return axiosInstance().post('/story-api/story', data)

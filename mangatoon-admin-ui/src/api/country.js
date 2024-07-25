@@ -1,7 +1,9 @@
 import axiosInstance from "../helpers/axios"
 
 export default {
-    getCountries: () => {
-        return axiosInstance().get('/story-api/country')
+    getCountries: (queries) => {
+        return axiosInstance().get('/story-api/country', {
+            params: queries
+        })
     }
 }
