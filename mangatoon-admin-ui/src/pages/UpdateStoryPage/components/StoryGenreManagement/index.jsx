@@ -1,9 +1,9 @@
 import { useState } from "react"
 import IconButton from "../../../../components/IconButton"
-import AliasList from "./components/AliasList"
-import AddAliasIW from "./components/AddAliasIW"
+import StoryGenreList from "./components/StoryGenreList"
+import AddStoryGenreIW from "./components/AddStoryGenreIW"
 
-function AliasManagement({
+function StoryGenreManagement({
     storyId
 }) {
     const [refetch, setRefetch] = useState({
@@ -18,7 +18,7 @@ function AliasManagement({
             <div className="space-y-2">
                 <div className="flex justify-between items-center">
                     <div>
-                        <div className="text-[1.4rem] font-[600]">Tên Khác Của Truyện</div>
+                        <div className="text-[1.4rem] font-[600]">Thể Loại Của Truyện</div>
                     </div>
 
                     <div className="flex space-x-2">
@@ -41,7 +41,7 @@ function AliasManagement({
                 </div>
 
                 <div>
-                    <AliasList
+                    <StoryGenreList
                         storyId={storyId}
                         refetch={refetch}
                         setRefetch={setRefetch}
@@ -49,13 +49,13 @@ function AliasManagement({
                 </div>
             </div>
 
-            <AddAliasIW 
+            <AddStoryGenreIW 
                 open={open}
                 storyId={storyId}
-                setRefetchAliasList={setRefetch}
+                setRefetchStoryGenreList={setRefetch}
             />
         </>
     )
 }
 
-export default AliasManagement
+export default StoryGenreManagement

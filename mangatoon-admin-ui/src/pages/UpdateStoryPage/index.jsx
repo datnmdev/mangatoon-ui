@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom"
 import UpdateStoryForm from "./components/UpdateStoryForm"
 import useGetStoryById from "./hooks/useGetStoryById"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { SUCCEEDED } from "../../constants/fetchStatus.constant"
 import { DELETED, FINISHED, IN_PROGRESS, SUSPENDED, UNPUBLISHED } from "../StoryManagementPage/components/StoryList/constants"
 import useGetCountryById from "./hooks/useGetCountryById"
 import AliasManagement from "./components/AliasManagement"
+import StoryGenreManagement from "./components/StoryGenreManagement"
 
 const statusOptions = [
     {
@@ -73,6 +74,15 @@ function UpdateStoryPage() {
                 {getStoryByIdStatus === SUCCEEDED
                     && (
                         <AliasManagement
+                            storyId={storyData.data.rows[0].id}
+                        />
+                    )}
+            </div>
+
+            <div>
+                {getStoryByIdStatus === SUCCEEDED
+                    && (
+                        <StoryGenreManagement
                             storyId={storyData.data.rows[0].id}
                         />
                     )}
