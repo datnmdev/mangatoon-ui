@@ -108,7 +108,7 @@ function AddStoryForm() {
     }, [createStoryStatus])
 
     return (
-        <div>
+        <div className="space-y-2">
             <div className="flex justify-between items-center">
                 <div>
                     <div className="text-[1.4rem] font-[600]">Thêm Truyện</div>

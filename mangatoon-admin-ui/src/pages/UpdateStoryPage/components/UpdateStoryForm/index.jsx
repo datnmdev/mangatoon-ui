@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import Button from "../../../../components/Button"
 import CoverImageUploader from "../../../../components/CoverImageUploader"
 import Input from "../../../../components/Input"
 import SelectSearch from "../../../../components/SelectSearch"
@@ -12,6 +11,7 @@ import { useDispatch } from "react-redux"
 import { toastActions } from "../../../../features/toast.feature"
 import { ERROR, SUCCESS } from "../../../../components/Toast/constants"
 import useUpdateStory from "./hooks/useUpdateStory"
+import IconButton from "../../../../components/IconButton"
 
 const statusOptions = [
     {
@@ -84,7 +84,7 @@ function UpdateStoryForm({
                 dispatch(toastActions.addToast({
                     type: SUCCESS,
                     title: 'Cập nhật truyện thành công!',
-                    message: `Thông tin bộ truyện ${createStoryData.data.title} đã được lưu vào cơ sở dữ liệu`
+                    message: `Thông tin bộ truyện ${storyData.title} đã được lưu vào cơ sở dữ liệu`
                 }))
             } else {
                 dispatch(toastActions.addToast({
@@ -97,20 +97,21 @@ function UpdateStoryForm({
     }, [createStoryStatus])
 
     return (
-        <div>
+        <div className="space-y-2">
             <div className="flex justify-between items-center">
                 <div>
                     <div className="text-[1.4rem] font-[600]">Cập Nhật Truyện</div>
                 </div>
 
                 <div className="space-x-2 flex items-center">
-                    <Button
+                    <IconButton
+                        icon={(<i className="fa-regular fa-floppy-disk"></i>)}
                         backgroundColor="#41c035"
                         disabled={!validate() || (createStoryStatus === PENDING)}
                         onClick={() => setCreateStorySubmit(true)}
                     >
-                        Cập nhật
-                    </Button>
+                        Lưu thay đổi
+                    </IconButton>
                 </div>
             </div>
 

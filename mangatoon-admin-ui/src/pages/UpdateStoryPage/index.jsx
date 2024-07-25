@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { SUCCEEDED } from "../../constants/fetchStatus.constant"
 import { DELETED, FINISHED, IN_PROGRESS, SUSPENDED, UNPUBLISHED } from "../StoryManagementPage/components/StoryList/constants"
 import useGetCountryById from "./hooks/useGetCountryById"
+import AliasManagement from "./components/AliasManagement"
 
 const statusOptions = [
     {
@@ -47,7 +48,7 @@ function UpdateStoryPage() {
     }, [getStoryByIdStatus])
 
     return (
-        <div className="bg-white p-4 min-h-[calc(100vh+64px)]">
+        <div className="bg-white p-4 min-h-[calc(100vh+64px)] space-y-6">
             <div>
                 {getStoryByIdStatus === SUCCEEDED && getCountryByIdStatus === SUCCEEDED
                     ? (
@@ -66,6 +67,15 @@ function UpdateStoryPage() {
                         />
                     )
                     : null}
+            </div>
+
+            <div>
+                {getStoryByIdStatus === SUCCEEDED
+                    && (
+                        <AliasManagement
+                            storyId={storyData.data.rows[0].id}
+                        />
+                    )}
             </div>
         </div>
     )
