@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import CoverImageUploader from "../../../../components/CoverImageUploader"
 import Input from "../../../../components/Input"
 import SelectSearch from "../../../../components/SelectSearch"
@@ -198,4 +198,4 @@ function UpdateStoryForm({
     )
 }
 
-export default UpdateStoryForm
+export default memo(UpdateStoryForm)

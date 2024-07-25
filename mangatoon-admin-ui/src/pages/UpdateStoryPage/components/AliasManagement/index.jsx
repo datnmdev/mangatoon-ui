@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 import IconButton from "../../../../components/IconButton"
 import AliasList from "./components/AliasList"
 import AddAliasIW from "./components/AddAliasIW"
@@ -58,4 +58,4 @@ function AliasManagement({
     )
 }
 
-export default AliasManagement
+export default  memo(AliasManagement)

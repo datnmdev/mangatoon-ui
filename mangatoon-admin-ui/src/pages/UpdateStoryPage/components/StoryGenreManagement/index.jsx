@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 import IconButton from "../../../../components/IconButton"
 import StoryGenreList from "./components/StoryGenreList"
 import AddStoryGenreIW from "./components/AddStoryGenreIW"
@@ -58,4 +58,4 @@ function StoryGenreManagement({
     )
 }
 
-export default StoryGenreManagement
+export default  memo(StoryGenreManagement)

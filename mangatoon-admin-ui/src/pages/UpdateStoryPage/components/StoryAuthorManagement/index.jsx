@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 import IconButton from "../../../../components/IconButton"
 import StoryAuthorList from "./components/StoryAuthorList"
 import AddStoryAuthorIW from "./components/AddStoryAuthorIW"
@@ -58,4 +58,4 @@ function StoryAuthorManagement({
     )
 }
 
-export default StoryAuthorManagement
+export default  memo(StoryAuthorManagement)
