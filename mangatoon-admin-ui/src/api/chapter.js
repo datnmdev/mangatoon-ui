@@ -9,4 +9,7 @@ export default {
     updateChapter: (id, data) => {
         return axiosInstance().post(`/story-api/chapter/${id}`, data)
     },
+    createChapter: (data) => {
+        return axiosInstance().post('/story-api/chapter', data)
+    }
 }

@@ -1,5 +1,4 @@
 import { memo, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import useSearchChapter from './hooks/useSearchChapter'
 import IconButton from '../../../../components/IconButton'
 import SearchInput from '../../../../components/SearchInput'
@@ -7,12 +6,11 @@ import Filter from '../../../../components/Filter'
 import { CHECKBOX } from '../../../../components/Filter/components/constants'
 import { CREATED, DELETED } from './components/ChapterList/constants'
 import ChapterList from './components/ChapterList'
-import path from '../../../../routers/path'
+import AddChapterIW from './components/ChapterList/components/AddChapterIW'
 
 function ChapterManagement({
     storyId
 }) {
-    const navigate = useNavigate()
     const [pagination, setPagination] = useState({
         page: 1,
         limit: 10
@@ -27,6 +25,9 @@ function ChapterManagement({
     const [refetch, setRefetch] = useState({
         value: false
     })
+    const [openAddChapterIW, setOpenAddChapterIW] = useState(({
+        value: false
+    }))
 
     useEffect(() => {
         if (refetch.value) {
@@ -61,7 +62,9 @@ function ChapterManagement({
                                 icon={(<i className="fa-solid fa-plus"></i>)}
                                 content="Thêm"
                                 backgroundColor="#21C55D"
-                                onClick={() => navigate(path.addStoryPage())}
+                                onClick={() => setOpenAddChapterIW({
+                                    value: true
+                                })}
                             />
 
                             <IconButton
@@ -131,6 +134,12 @@ function ChapterManagement({
                     </div>
                 </div>
             </div>
+
+            <AddChapterIW 
+                open={openAddChapterIW}
+                storyId={storyId}
+                setRefetchChapterList={setRefetch}
+            />
         </>
     )
 }
