@@ -1,29 +1,24 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import useCreateChapter from './hooks/useCreateChapter'
-import { CREATED, statusContent } from '../../../../constants'
+import { statusContent } from '../../../../constants'
 import { PENDING, SUCCEEDED } from '../../../../../../../../../../constants/fetchStatus.constant'
 import { toastActions } from '../../../../../../../../../../features/toast.feature'
 import { ERROR, SUCCESS } from '../../../../../../../../../../components/Toast/constants'
 import Input from '../../../../../../../../../../components/Input'
 import Button from '../../../../../../../../../../components/Button'
+import useUpdateChapter from './hooks/useUpdateChapter'
 
-function AddChapterForm({
-    storyId,
+function UpdateChapterForm({
+    chapter,
     setRefetchChapterList
 }) {
     const dispatch = useDispatch()
     const [inputData, setInputData] = useState({
-        order: '',
-        name: '',
+        order: String(chapter.order),
+        name: chapter.name,
     })
-    const [data, setData] = useState({
-        order: undefined,
-        name: '',
-        storyId,
-        status: CREATED
-    })
-    const {data: createChapterData, status: createChapterStatus, setSubmit: setCreateChapterSubmit} = useCreateChapter(data)
+    const [data, setData] = useState(chapter)
+    const {data: updateChapterData, status: updateChapterStatus, setSubmit: setUpdateChapterSubmit} = useUpdateChapter(data)
 
     function validate() {
         if (inputData.name.length === 0) {
@@ -46,12 +41,12 @@ function AddChapterForm({
     }, [inputData])
 
     useEffect(() => {
-        if (createChapterStatus === SUCCEEDED) {
-            if (createChapterData.data) {
+        if (updateChapterStatus === SUCCEEDED) {
+            if (updateChapterData.data) {
                 dispatch(toastActions.addToast({
                     type: SUCCESS,
-                    title: 'Tạo chương thành công!',
-                    message: `${createChapterData.data.name} đã được lưu vào cơ sở dữ liệu.`
+                    title: 'Cập nhật chương thành công!',
+                    message: `Thông tin của chương có id là ${chapter.id} đã được lưu lại vào cơ sở dữ liệu.`
                 }))
                 setRefetchChapterList({
                     value: true
@@ -59,12 +54,12 @@ function AddChapterForm({
             } else {
                 dispatch(toastActions.addToast({
                     type: ERROR,
-                    title: 'Tạo chương thất bại!',
+                    title: 'Cập nhật chương thất bại!',
                     message: `Đã có lỗi xảy ra. Vui lòng thử lại.`
                 }))
             }
         }
-    }, [createChapterStatus])
+    }, [updateChapterStatus])
 
     return (
         <div>
@@ -94,7 +89,7 @@ function AddChapterForm({
                 <div>
                     <div>Status</div>
                     <Input
-                        value={statusContent[CREATED]}
+                        value={statusContent[chapter.status]}
                         disabled={true}
                     />
                 </div>
@@ -102,7 +97,7 @@ function AddChapterForm({
                 <div>
                     <div>Story Id</div>
                     <Input
-                        value={storyId}
+                        value={chapter.storyId}
                         disabled={true}
                     />
                 </div>
@@ -112,10 +107,10 @@ function AddChapterForm({
                 <div>
                     <Button
                         backgroundColor="rgb(33, 197, 93)"
-                        onClick={() => setCreateChapterSubmit(true)}
-                        disabled={createChapterStatus === PENDING || !validate()}
+                        onClick={() => setUpdateChapterSubmit(true)}
+                        disabled={updateChapterStatus === PENDING || !validate()}
                     >
-                        Tạo
+                        Lưu thay đổi
                     </Button>
                 </div>
             </div>
@@ -123,4 +118,4 @@ function AddChapterForm({
     )
 }
 
-export default AddChapterForm
+export default UpdateChapterForm
