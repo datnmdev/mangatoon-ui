@@ -61,6 +61,15 @@ function ChapterList({
                                 status: DELETED
                             })}
                         />
+
+                        <RoundButton
+                            icon={(<i className="fa-regular fa-file-lines"></i>)}
+                            color="green"
+                            onClick={() => setUpdateChapterReqData({
+                                id: row.id,
+                                status: DELETED
+                            })}
+                        />
                     </div>
                 )
                 : (

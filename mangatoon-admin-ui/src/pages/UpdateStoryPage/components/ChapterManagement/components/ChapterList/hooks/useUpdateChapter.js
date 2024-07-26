@@ -11,7 +11,7 @@ function useUpdateChapter(chapterData) {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.chapter.updateChapter(chapterData)
+                const response = await api.chapter.updateChapter(chapterData.id, chapterData)
                 setData(response.data)
                 setStatus(SUCCEEDED)
             } catch (error) {

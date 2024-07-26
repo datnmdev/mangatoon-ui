@@ -11,7 +11,7 @@ function useUpdateStory(storyData) {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.story.updateStory(storyData)
+                const response = await api.story.updateStory(storyData.id, storyData)
                 setData(response.data)
                 setStatus(SUCCEEDED)
             } catch (error) {
