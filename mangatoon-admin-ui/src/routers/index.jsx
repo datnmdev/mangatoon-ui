@@ -11,6 +11,7 @@ import SettingPage from "../pages/SettingPage"
 import AddStoryPage from "../pages/AddStoryPage"
 import UpdateStoryPage from "../pages/UpdateStoryPage"
 import GenreManagementPage from "../pages/GenreManagementPage"
+import AuthorManagementPage from "../pages/AuthorManagementPage"
 
 const router = createBrowserRouter([
     {
@@ -88,6 +89,17 @@ const router = createBrowserRouter([
                         <CommonLayout
                             header={(<Header />)}
                             content={(<GenreManagementPage />)}
+                        />
+                    </Protected>
+                )
+            },
+            {
+                path: 'author-management',
+                element: (
+                    <Protected>
+                        <CommonLayout
+                            header={(<Header />)}
+                            content={(<AuthorManagementPage />)}
                         />
                     </Protected>
                 )

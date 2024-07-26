@@ -19,5 +19,8 @@ export default {
     },
     genreManagementPage: () => {
         return `/genre-management`
+    },
+    authorManagementPage: () => {
+        return `/author-management`
     }
 }
