@@ -10,6 +10,7 @@ import Protected from "../components/Protected"
 import SettingPage from "../pages/SettingPage"
 import AddStoryPage from "../pages/AddStoryPage"
 import UpdateStoryPage from "../pages/UpdateStoryPage"
+import GenreManagementPage from "../pages/GenreManagementPage"
 
 const router = createBrowserRouter([
     {
@@ -79,7 +80,18 @@ const router = createBrowserRouter([
                         />
                     </Protected>
                 )
-            }
+            },
+            {
+                path: 'genre-management',
+                element: (
+                    <Protected>
+                        <CommonLayout
+                            header={(<Header />)}
+                            content={(<GenreManagementPage />)}
+                        />
+                    </Protected>
+                )
+            },
         ]
     }
 ])

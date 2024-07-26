@@ -55,7 +55,7 @@ function ChapterManagement({
                     </div>
                 </div>
 
-                <div className="h-full flex flex-col bg-white min-h-[100vh]">
+                <div className="h-full flex flex-col bg-white">
                     <div className="flex justify-between items-center">
                         <div className="flex space-x-2">
                             <IconButton

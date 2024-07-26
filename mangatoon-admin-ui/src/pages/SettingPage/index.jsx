@@ -9,7 +9,7 @@ function SettingPage() {
 
     return (
         <div>
-            <div className="bg-white flex justify-between rounded-[4px] p-8 space-x-8">
+            <div className="bg-white flex justify-between p-8 space-x-8">
                 <div className="min-w-[290px]">
                     <Tabbar
                         value={activeTab}
@@ -17,7 +17,7 @@ function SettingPage() {
                     />
                 </div>
 
-                <div className="grow">
+                <div className="grow min-h-[100vh]">
                     {activeTab === ACCOUNT_MANAGEMENT_TAB
                         && (
                             <AccountManagementTabContent />

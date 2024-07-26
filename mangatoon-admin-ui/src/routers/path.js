@@ -16,5 +16,8 @@ export default {
     },
     settingPage: () => {
         return '/setting'
+    },
+    genreManagementPage: () => {
+        return `/genre-management`
     }
 }
