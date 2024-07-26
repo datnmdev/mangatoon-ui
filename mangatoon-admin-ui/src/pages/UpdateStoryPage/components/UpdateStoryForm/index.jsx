@@ -48,8 +48,14 @@ function UpdateStoryForm({
 
     function validate() {
         for (let key in data) {
-            if (!data[key]) {
-                return false
+            if (key === 'description') {
+                if (!data[key]) {
+                    continue
+                } 
+            } else {
+                if (!data[key]) {
+                    return false
+                }
             }
         }
         return true
