@@ -12,6 +12,7 @@ import AddStoryPage from "../pages/AddStoryPage"
 import UpdateStoryPage from "../pages/UpdateStoryPage"
 import GenreManagementPage from "../pages/GenreManagementPage"
 import AuthorManagementPage from "../pages/AuthorManagementPage"
+import AccountManagementPage from "../pages/AccountManagementPage"
 
 const router = createBrowserRouter([
     {
@@ -100,6 +101,17 @@ const router = createBrowserRouter([
                         <CommonLayout
                             header={(<Header />)}
                             content={(<AuthorManagementPage />)}
+                        />
+                    </Protected>
+                )
+            },
+            {
+                path: 'account-management',
+                element: (
+                    <Protected>
+                        <CommonLayout
+                            header={(<Header />)}
+                            content={(<AccountManagementPage />)}
                         />
                     </Protected>
                 )

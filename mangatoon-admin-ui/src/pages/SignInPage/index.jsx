@@ -36,7 +36,7 @@ function SignInPage() {
                         } else if (loginData.data.account.status === LOCKED) {
                             setAlert('Tài khoản của bạn đã bị khoá. Vui lòng liên hệ với admin để mở khoá')
                         } else if (loginData.data.account.status === UNACTIVATED) {
-                            navigate(location.verifyAccountPage(loginData.data.account))
+                            setAlert('Tài khoản của bạn chưa được kích hoạt. Vui lòng liên hệ với admin để được kích hoạt')
                         }
                     } else {
                         setAlert('Email hoặc mật khẩu không đúng. Vui lòng thử lại')

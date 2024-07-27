@@ -6,6 +6,7 @@ function SelectSearch({
     value,
     placeholder = "Chọn quốc gia",
     disabled = false,
+    maxHeight = '240px',
     onChange
 }) {
     const [selectedOption, setSelectedOption] = useState(value || null)
@@ -65,7 +66,12 @@ function SelectSearch({
 
             {isFocus
                 && (
-                    <ul className="absolute left-0 top-full w-full max-h-[240px] overflow-y-auto border-[1px] border-t-0 rounded-bl-[4px] rounded-br-[4px] bg-white z-10">
+                    <ul 
+                        className="absolute left-0 top-full w-full overflow-y-auto border-[1px] border-t-0 rounded-bl-[4px] rounded-br-[4px] bg-white z-10"
+                        style={{
+                            maxHeight
+                        }}
+                    >
                         {searchResut.map((option, index) => {
                             return (
                                 <li

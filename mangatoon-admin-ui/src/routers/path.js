@@ -22,5 +22,8 @@ export default {
     },
     authorManagementPage: () => {
         return `/author-management`
+    },
+    accountManagementPage: () => {
+        return `/account-management`
     }
 }

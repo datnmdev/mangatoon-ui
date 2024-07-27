@@ -50,6 +50,15 @@ function Header() {
                             TÁC GIẢ
                         </Link>
                     </li>
+
+                    <li>
+                        <Link 
+                            className="block text-white font-[500] px-4 leading-[64px] hover:bg-[rgba(0,0,0,0.4)]"
+                            to={path.accountManagementPage()}
+                        >
+                            TÀI KHOẢN
+                        </Link>
+                    </li>
                 </ul>
             </div>
 

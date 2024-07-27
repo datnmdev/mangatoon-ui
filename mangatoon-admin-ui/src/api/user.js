@@ -25,5 +25,13 @@ export default {
     },
     signOut: (data) => {
         return axiosInstance().post('/user-api/auth/signOut', data)
+    },
+    searchAccount: (queries) => {
+        return axiosInstance().get('/user-api/account/search', {
+            params: queries
+        })
+    },
+    updateAccount: (id, data) => {
+        return axiosInstance().post(`/user-api/account/${id}`, data)
     }
 }
