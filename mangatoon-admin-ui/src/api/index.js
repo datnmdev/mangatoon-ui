@@ -1,6 +1,7 @@
 import alias from "./alias";
 import author from "./author";
 import chapter from "./chapter";
+import chapterImage from "./chapterImage";
 import country from "./country";
 import genre from "./genre";
 import story from "./story";
@@ -17,5 +18,6 @@ export default {
     genre,
     storyAuthor,
     author,
-    chapter
+    chapter,
+    chapterImage
 }

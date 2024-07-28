@@ -9,6 +9,7 @@ import Loader from "../../../../../../components/Loader"
 import Table from "../../../../../../components/Table"
 import moment from "moment"
 import UpdateChapterIW from "./components/UpdateChapterIW"
+import ChapterContentManagementIW from "./components/ChapterContentManagementIW"
 
 const headers = [
     'Id',
@@ -33,6 +34,10 @@ function ChapterList({
     const { data: updateChapterData, status: updateChapterStatus, setSubmit: setUpdateChapterSubmit } = useUpdateChapter(updateChapterReqData)
     const [rowToUpdate, setRowToUpdate] = useState(undefined)
     const [openUpdateChapterIW, setOpenUpdateChapterIW] = useState({
+        value: false
+    })
+    const [rowToOpenChapterContentManagementIW, setRowToOpenChapterContentManagementIW] = useState(undefined)
+    const [openChapterContentManagementIW, setOpenChapterContentManagementIW] = useState({
         value: false
     })
 
@@ -71,9 +76,8 @@ function ChapterList({
                             <RoundButton
                                 icon={(<i className="fa-regular fa-file-lines"></i>)}
                                 color="green"
-                                onClick={() => setUpdateChapterReqData({
-                                    id: row.id,
-                                    status: DELETED
+                                onClick={() => setRowToOpenChapterContentManagementIW({
+                                   ...row
                                 })}
                             />
                         </div>
@@ -118,6 +122,14 @@ function ChapterList({
         }
     }, [rowToUpdate])
 
+    useEffect(() => {
+        if (rowToOpenChapterContentManagementIW) {
+            setOpenChapterContentManagementIW({
+                value: true
+            })
+        }
+    }, [rowToOpenChapterContentManagementIW])
+
     return (
         <>
             <Loader status={status}>
@@ -137,6 +149,11 @@ function ChapterList({
                 open={openUpdateChapterIW}
                 setRefetchChapterList={setRefetch}
                 chapter={rowToUpdate}
+            />
+
+            <ChapterContentManagementIW
+                open={openChapterContentManagementIW}
+                chapter={rowToOpenChapterContentManagementIW}
             />
         </>
 
