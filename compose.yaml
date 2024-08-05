@@ -6,7 +6,7 @@ services:
       context: ./mangatoon-admin-ui
       dockerfile: Dockerfile
     ports:
-      - "55001:3000"
+      - "10001:3000"
 
   client-ui:
     container_name: client-ui
@@ -15,4 +15,4 @@ services:
       context: ./mangatoon-client-ui
       dockerfile: Dockerfile
     ports:
-      - "55002:3000"
+      - "10002:3000"
