@@ -8,7 +8,8 @@ function Replies({
     book,
     chapter,
     parentData,
-    refetch
+    refetch,
+    setRefetch
 }) {
     const [hidden, setHidden] = useState(true)
     const { data: getCommentsData, status: getCommentStatus, setSubmit: setGetCommentSubmit } = useGetComments({
@@ -51,6 +52,7 @@ function Replies({
                                         limit={Number.MAX_SAFE_INTEGER}
                                         hidePagination={true}
                                         refetch={refetch}
+                                        setRefetch={setRefetch}
                                     />
                                 </div>
                             )}
@@ -104,6 +106,7 @@ function Replies({
                             limit={Number.MAX_SAFE_INTEGER}
                             hidePagination={true}
                             refetch={refetch}
+                            setRefetch={setRefetch}
                             sort={ASC}
                         />
                     </div>

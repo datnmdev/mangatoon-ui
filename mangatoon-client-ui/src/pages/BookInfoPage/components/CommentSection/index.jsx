@@ -5,6 +5,7 @@ import Topic from "../../../../components/Topic"
 import { SUCCEEDED } from "../../../../constants/fetchStatus.constant"
 import useGetComments from "./hooks/useGetComments"
 import { DESC } from "../../../../components/CommentList/constants"
+import useCreateComment from "./hooks/useCreateComment"
 
 function CommentSection({
     book,
@@ -20,6 +21,12 @@ function CommentSection({
         storyId: book?.id,
         sort: DESC
     })
+    const [commentBody, setCommentBody] = useState({
+        storyId: book?.id,
+        chapterId: chapter?.id,
+        content:''
+    })
+    const { data: createdCommentData, status: createCommentStatus, setSubmit: setCreateCommentSubmit } = useCreateComment(commentBody)
 
     useEffect(() => {
         setGetCommentsSubmit(true)
@@ -30,6 +37,20 @@ function CommentSection({
             setGetCommentsSubmit(true)
         }
     }, [refetch])
+
+    useEffect(() => {
+        if (createCommentStatus === SUCCEEDED) {
+            if (createdCommentData.data) {
+                setCommentBody({
+                    ...commentBody,
+                    content: ''
+                })
+                setRefetch({
+                    value: true
+                })
+            }
+        }
+    }, [createCommentStatus])
 
     return (
         <Topic
@@ -48,9 +69,13 @@ function CommentSection({
         >
             <div className="mb-4">
                <TextEditorSection
-                    book={book}
-                    chapter={chapter}
-                    onSubmit={(status) => status === SUCCEEDED && setRefetch({ value: 1 })}
+                    value={commentBody.content}
+                    onChange={(value) => setCommentBody({
+                        ...commentBody,
+                        content: value
+                    })}
+                    status={createCommentStatus}
+                    onSubmit={() => setCreateCommentSubmit(true)}
                />
             </div>
 
@@ -58,6 +83,7 @@ function CommentSection({
                 book={book}
                 chapter={chapter}
                 refetch={refetch}
+                setRefetch={setRefetch}
             />
         </Topic>
     )

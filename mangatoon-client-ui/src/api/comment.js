@@ -9,7 +9,7 @@ export default {
     createComment: (data) => {
         return axiosInstance().post('/comment-api/comment', data)
     },
-    updateComment: (data) => {
-        return axiosInstance().put('/comment-api/comment', data)
+    updateComment: (id, data) => {
+        return axiosInstance().put(`/comment-api/comment/${id}`, data)
     }
 }

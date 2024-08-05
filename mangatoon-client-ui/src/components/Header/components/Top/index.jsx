@@ -26,17 +26,6 @@ function Top() {
 
                 </div>
 
-                {/* <div className='shrink-0'>
-                    <button
-                        className='w-10 h-10 rounded-[50%] border-[1px] border-current'
-                        style={{
-                            color: colors.primaryColor
-                        }}
-                    >
-                        <i className='fa-regular fa-lightbulb'></i>
-                    </button>
-                </div> */}
-
                 <div className='shrink-0 sm:hidden md:block xl:block'>
                     <StorySearcher />
                 </div>

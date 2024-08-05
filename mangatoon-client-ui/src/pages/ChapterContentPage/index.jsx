@@ -113,7 +113,7 @@ function ChapterContentPage() {
             </div>
 
             <div className="mb-[54px] mt-6">
-                <div className="container mx-auto bg-white rounded-[6px] overflow-hidden p-4">
+                <div className="container mx-auto bg-white rounded-[6px] p-4">
                     {book && chapter
                         ? (
                             <CommentSection

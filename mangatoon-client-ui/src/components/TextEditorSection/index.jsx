@@ -2,45 +2,28 @@ import { useSelector } from "react-redux"
 import { userSelectors } from "../../features/user.feature"
 import { useEffect, useState } from "react"
 import TextEditor from "../TextEditor"
-import useCreateComment from "./hooks/useCreateComment"
-import { PENDING, SUCCEEDED } from "../../constants/fetchStatus.constant"
+import { PENDING } from "../../constants/fetchStatus.constant"
 import Protected from "../Protected"
 
 function TextEditorSection({
-    book,
-    chapter,
-    parentComment,
-    onSubmit = (status) => { }
+    value = '',
+    status,
+    onChange = (value) => {},
+    onSubmit = () => {}
 }) {
-    const profile = useSelector(userSelectors.selectProfile)
-    const [content, setContent] = useState('')
-    const [submitData, setSubmitData] = useState({
-        chapterId: chapter?.id,
-        storyId: book?.id,
-        content,
-        parentId: parentComment?.id
-    })
-    const { data: createCommentData, status: createCommentStatus, setSubmit: setCreateCommentSubmit } = useCreateComment(submitData)
+    const [content, setContent] = useState(value)
     const [enableProtection, setEnableProtection] = useState(false)
+    const profile = useSelector(userSelectors.selectProfile)
 
     useEffect(() => {
-        setSubmitData({
-            ...submitData,
-            content
-        })
+        if (onChange) {
+            onChange(content)
+        }
     }, [content])
 
     useEffect(() => {
-        if (onSubmit) {
-            onSubmit(createCommentStatus)
-        }
-
-        if (createCommentStatus === SUCCEEDED) {
-            if (createCommentData.data) {
-                setContent('')
-            }
-        }
-    }, [createCommentStatus])
+        setContent(value)
+    }, [value])
 
     return (
         <div className='flex justify-between items-start space-x-2'>
@@ -55,14 +38,16 @@ function TextEditorSection({
             <div className='grow'>
                 <Protected enable={enableProtection}>
                     <TextEditor
+                        value={content}
                         onChange={value => setContent(value)}
                         onSubmit={() => {
                             setEnableProtection(true)
-                            setCreateCommentSubmit(true)
+                            if (onSubmit) {
+                                onSubmit()
+                            }
                         }}
-                        status={createCommentStatus}
-                        disabled={createCommentStatus === PENDING}
-                        reset={content === '' ? { value: true } : { value: false }}
+                        status={status}
+                        disabled={status === PENDING}
                     />
                 </Protected>
             </div>

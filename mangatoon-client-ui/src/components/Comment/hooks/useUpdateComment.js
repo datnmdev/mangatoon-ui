@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
-import { FAILED, IDLE, PENDING, SUCCEEDED } from "../../../constants/fetchStatus.constant"
-import api from "../../../api"
+import { useEffect, useState } from 'react'
+import { FAILED, IDLE, PENDING, SUCCEEDED } from '../../../constants/fetchStatus.constant'
+import api from '../../../api'
 
-function useCreateComment(body) {
+function useUpdateComment(commentData) {
     const [isSubmit, setSubmit] = useState(false)
     const [data, setData] = useState(undefined)
     const [status, setStatus] = useState(IDLE)
@@ -11,7 +11,7 @@ function useCreateComment(body) {
         async function submit() {
             try {
                 setStatus(PENDING)
-                const response = await api.comment.createComment(body)
+                const response = await api.comment.updateComment(commentData.id, commentData)
                 setData(response.data)
                 setStatus(SUCCEEDED)
             } catch (error) {
@@ -37,4 +37,4 @@ function useCreateComment(body) {
     }
 }
 
-export default useCreateComment
+export default useUpdateComment

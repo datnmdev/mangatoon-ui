@@ -14,7 +14,8 @@ function CommentList({
     sort = DESC,
     refetch = {
         value: false
-    }
+    },
+    setRefetch
 }) {
     const [pagination, setPagination] = useState({
         page: 1,
@@ -57,6 +58,7 @@ function CommentList({
                             book={book}
                             chapter={chapter}
                             data={comment}
+                            setRefetchCommentList={setRefetch}
                         />
                     )
                 })}
