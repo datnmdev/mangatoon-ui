@@ -1,0 +1,9 @@
+**/.dockerignore
+**/.git
+**/.gitignore
+**/.vscode
+**/Dockerfile*
+**/node_modules
+README.Docker.md
+yarn.lock
+**/.DS_Store
