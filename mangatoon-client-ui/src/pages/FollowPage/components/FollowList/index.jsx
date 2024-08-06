@@ -22,11 +22,7 @@ function FollowList() {
         if (profile) {
             setGetFollowListSubmit(true)
         }
-    }, [profile])
-
-    useEffect(() => {
-        setGetFollowListSubmit(true)
-    }, [pagination.page])
+    }, [profile, pagination.page])
 
     useEffect(() => {
         if (getFollowListStatus === SUCCEEDED) {

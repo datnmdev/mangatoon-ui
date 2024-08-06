@@ -79,7 +79,7 @@ function Bottom() {
 
                     {genres && !genreHidden
                         ? (
-                            <div>
+                            <div className='z-50'>
                                 <GenreDetail
                                     data={genres.map(genre => ({
                                         name: genre.name,
