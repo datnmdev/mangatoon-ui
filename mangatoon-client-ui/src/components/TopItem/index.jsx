@@ -2,7 +2,7 @@ import { Rating, Skeleton } from "@mui/material"
 import useGetRatingOfStory from "./hooks/useGetRatingOfStory"
 import useGetViewCount from "./hooks/useGetViewCount"
 import useGetFollowCountOfStory from "./hooks/useGetFollowCountOfStory"
-import { useEffect, useRef } from "react"
+import { memo, useEffect, useRef } from "react"
 import { PENDING } from "../../constants/fetchStatus.constant"
 import { Link } from "react-router-dom"
 import location from "../../routers/location"
@@ -137,4 +137,4 @@ function TopItem({
     )
 }
 
-export default TopItem
+export default memo(TopItem)

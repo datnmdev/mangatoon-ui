@@ -1,3 +1,4 @@
+import { memo } from "react"
 import SearchResultItem from "./components/SearchResultItem"
 
 function SearchResult({
@@ -19,4 +20,4 @@ function SearchResult({
     )
 }
 
-export default SearchResult
+export default memo(SearchResult)

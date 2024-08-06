@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 
 function IconContainer({
     data = [],
@@ -98,4 +98,4 @@ function IconContainer({
     )
 }
 
-export default IconContainer
+export default memo(IconContainer)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import Window from "./components/Window"
 
 function InlineWindow({
@@ -46,4 +46,4 @@ function InlineWindow({
     )
 }
 
-export default InlineWindow
+export default memo(InlineWindow)

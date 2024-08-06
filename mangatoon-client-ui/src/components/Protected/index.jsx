@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { userSelectors } from "../../features/user.feature"
-import { useEffect } from "react"
+import { memo, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import location from "../../routers/location"
 
@@ -20,4 +20,4 @@ function Protected({
     return children
 }
 
-export default Protected
+export default memo(Protected)

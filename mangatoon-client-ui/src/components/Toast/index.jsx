@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, memo } from "react";
 import { SUCCESS } from "./constants"
 import './index.css'
 import { useDispatch } from "react-redux";
@@ -44,4 +44,4 @@ function Toast({
     )
 }
 
-export default Toast
+export default memo(Toast)

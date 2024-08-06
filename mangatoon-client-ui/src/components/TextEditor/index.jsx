@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import RoundButton from "../RoundButton"
 import { IDLE, PENDING } from "../../constants/fetchStatus.constant"
 import IconContainer from "../IconContainer"
@@ -209,4 +209,4 @@ function TextEditor({
     )
 }
 
-export default TextEditor
+export default memo(TextEditor)

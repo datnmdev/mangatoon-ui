@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 import colors from "../../assets/colors"
 
 function Button({
@@ -36,4 +36,4 @@ function Button({
     )
 }
 
-export default Button
+export default memo(Button)

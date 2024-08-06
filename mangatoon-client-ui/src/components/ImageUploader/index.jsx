@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 
 function ImageUploader({
     src = '',
@@ -49,4 +49,4 @@ function ImageUploader({
     )
 }
 
-export default ImageUploader
+export default memo(ImageUploader)

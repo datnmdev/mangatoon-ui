@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 
 function IconButton({
     icon = (<i className="fa-solid fa-book-open"></i>),
@@ -45,4 +45,4 @@ function IconButton({
     )
 }
 
-export default IconButton
+export default memo(IconButton)

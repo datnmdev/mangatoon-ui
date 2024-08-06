@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import api from "../../../../../../../../../../api"
 import { Link, useNavigate } from 'react-router-dom'
 import location from "../../../../../../../../../../routers/location"
@@ -87,4 +87,4 @@ function SearchResultItem({
     )
 }
 
-export default SearchResultItem
+export default memo(SearchResultItem)

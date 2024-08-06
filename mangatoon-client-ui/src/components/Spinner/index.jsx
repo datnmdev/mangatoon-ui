@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 function Spinner({ size = '32px', color = '#7b10ff', background = '#f3f0f0' }) {
     return (
         <span 
@@ -14,4 +16,4 @@ function Spinner({ size = '32px', color = '#7b10ff', background = '#f3f0f0' }) {
     )
 }
 
-export default Spinner
+export default memo(Spinner)

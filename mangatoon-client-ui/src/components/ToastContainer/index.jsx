@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { toastActions, toastSelectors } from "../../features/toast.feature"
 import Toast from "../Toast"
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 
 function ToastContainer() {
     const dispatch = useDispatch()
@@ -48,4 +48,4 @@ function ToastContainer() {
     )
 }
 
-export default ToastContainer
+export default memo(ToastContainer)

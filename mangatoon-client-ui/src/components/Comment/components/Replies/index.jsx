@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import CommentList from "../../../CommentList"
 import useGetComments from "./hooks/useGetComments"
 import { PENDING, SUCCEEDED } from "../../../../constants/fetchStatus.constant"
@@ -115,4 +115,4 @@ function Replies({
     )
 }
 
-export default Replies
+export default memo(Replies)

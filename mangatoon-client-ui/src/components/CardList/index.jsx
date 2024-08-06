@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import Card from '../Card'
 import Pagination from '@mui/material/Pagination'
 
@@ -36,4 +37,4 @@ function CardList({
     )
 }
 
-export default CardList
+export default memo(CardList)

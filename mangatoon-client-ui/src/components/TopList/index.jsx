@@ -1,3 +1,4 @@
+import { memo } from "react"
 import TopItem from "../TopItem"
 
 function TopList({
@@ -34,4 +35,4 @@ function TopList({
     )
 }
 
-export default TopList
+export default memo(TopList)

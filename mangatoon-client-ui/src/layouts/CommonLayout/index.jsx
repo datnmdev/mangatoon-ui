@@ -1,11 +1,11 @@
 function CommonLayout({ header, content, footer }) {
     return (
         <div>
-            <div>
+            <div className="relative z-10">
                 {header}
             </div>
 
-            <div>
+            <div className="relative z-0">
                 {content}
             </div>
 

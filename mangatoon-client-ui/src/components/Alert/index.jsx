@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { ERROR, INFO, WARNING } from "./constants"
 
 function Alert({ 
@@ -24,4 +25,4 @@ function Alert({
     )
 }   
 
-export default Alert
+export default memo(Alert)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import Comment from "../Comment"
 import useGetComments from "../../pages/ChapterContentPage/components/CommentSection/hooks/useGetComments"
 import { PENDING } from "../../constants/fetchStatus.constant"
@@ -83,4 +83,4 @@ function CommentList({
     )
 }
 
-export default CommentList
+export default memo(CommentList)

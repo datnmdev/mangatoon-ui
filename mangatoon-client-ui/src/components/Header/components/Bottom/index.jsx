@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import colors from '../../../../assets/colors'
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import api from '../../../../api'
 import GenreDetail from './components/GenreDetail'
 import location from '../../../../routers/location'
@@ -25,11 +24,7 @@ function Bottom() {
     }, [])
 
     return (
-        <nav
-            style={{
-                backgroundColor: colors.primaryColor
-            }}
-        >
+        <nav className='bg-[#F08121] text-white'>
             <div className='flex justify-between items-center md:hidden md:container'>
                 <div>
                     <IconButton
@@ -48,10 +43,7 @@ function Bottom() {
             </div>
 
             <ul
-                className={`md:container md:mx-auto md:flex md:items-center sm:block ${hidden ? 'sm:hidden' : ''} sm:animate-dropdown`}
-                style={{
-                    color: colors.textPrimaryColor
-                }}
+                className={`md:container md:mx-auto md:flex md:items-center sm:block ${hidden ? 'sm:hidden' : ''} sm:animate-dropdown bg-[#F08121]`}
             >
                 <li
                     onClick={() => setHidden(true)}
@@ -79,14 +71,12 @@ function Bottom() {
 
                     {genres && !genreHidden
                         ? (
-                            <div className='z-50'>
-                                <GenreDetail
-                                    data={genres.map(genre => ({
-                                        name: genre.name,
-                                        link: location.booksOfGenrePage(genre)
-                                    }))}
-                                />
-                            </div>
+                            <GenreDetail
+                                data={genres.map(genre => ({
+                                    name: genre.name,
+                                    link: location.booksOfGenrePage(genre)
+                                }))}
+                            />
                         )
                         : null}
                 </li>
@@ -134,4 +124,4 @@ function Bottom() {
     )
 }
 
-export default Bottom
+export default memo(Bottom)

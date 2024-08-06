@@ -1,3 +1,4 @@
+import { memo } from "react"
 
 function BorderedButton({ 
     children,
@@ -18,4 +19,4 @@ function BorderedButton({
     )
 }
 
-export default BorderedButton
+export default memo(BorderedButton)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import Input from "../Input"
 
 function SelectSearch({
@@ -84,4 +84,4 @@ function SelectSearch({
     )
 }
 
-export default SelectSearch
+export default memo(SelectSearch)

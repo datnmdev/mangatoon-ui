@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import { Skeleton } from '@mui/material'
 import useGetCommentInteractionCount from "./hooks/useGetCommentInteractionCount"
 import { PENDING, SUCCEEDED } from "../../../../constants/fetchStatus.constant"
@@ -167,4 +167,4 @@ function Interaction({
     )
 }
 
-export default Interaction
+export default memo(Interaction)

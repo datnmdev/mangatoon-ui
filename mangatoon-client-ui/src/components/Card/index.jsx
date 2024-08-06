@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../../api'
 import { timeAgo } from '../../helpers/timer';
@@ -88,4 +88,4 @@ function Card({ data }) {
     )
 }
 
-export default Card
+export default memo(Card)

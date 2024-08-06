@@ -7,6 +7,7 @@ import Profile from './components/Profile'
 import { useSelector } from 'react-redux'
 import { userSelectors } from '../../../../features/user.feature'
 import StorySearcher from './components/StorySearcher'
+import { memo } from 'react'
 
 function Top() {
     const navigate = useNavigate()
@@ -51,4 +52,4 @@ function Top() {
     )
 }
 
-export default Top
+export default memo(Top)

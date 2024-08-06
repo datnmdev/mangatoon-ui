@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 function Empty() {
     return (
         <div className="min-h-[240px] bg-white flex flex-col justify-center items-center space-y-2">
@@ -12,4 +14,4 @@ function Empty() {
     )
 }
 
-export default Empty
+export default memo(Empty)

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import CardList from '../CardList'
 
 function Topic({
@@ -17,4 +18,4 @@ function Topic({
     )
 }
 
-export default Topic
+export default memo(Topic)

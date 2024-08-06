@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 
 function Search({
     placeholder = '',
@@ -44,4 +44,4 @@ function Search({
     )
 }
 
-export default Search
+export default memo(Search)

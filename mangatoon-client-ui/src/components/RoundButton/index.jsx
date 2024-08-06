@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 
 function RoundButton({ 
     icon = (<i className="fa-solid fa-pen"></i>), 
@@ -32,4 +32,4 @@ function RoundButton({
     )
 }
 
-export default RoundButton
+export default memo(RoundButton)

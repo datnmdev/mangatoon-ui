@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { userSelectors } from "../../features/user.feature"
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import TextEditor from "../TextEditor"
 import { PENDING } from "../../constants/fetchStatus.constant"
 import Protected from "../Protected"
@@ -55,4 +55,4 @@ function TextEditorSection({
     )
 }
 
-export default TextEditorSection
+export default memo(TextEditorSection)

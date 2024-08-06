@@ -9,7 +9,7 @@ function GenreDetail({
 
     return (
         <div
-            className='sm:relative sm:animate-dropdown md:absolute md:left-0 md:w-[100vw] text-black md:z-[1] bg-white'
+            className='sm:relative sm:animate-dropdown md:absolute md:left-0 md:w-[100vw] text-black bg-white'
             style={sx}
         >
             <div className='container mx-auto md:my-[22px] xl:my-[22px]'>

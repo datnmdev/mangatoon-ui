@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import { Skeleton } from '@mui/material'
 import Interaction from "./components/Interaction"
 import Replies from "./components/Replies"
@@ -252,4 +252,4 @@ function Comment({
     )
 }
 
-export default Comment
+export default memo(Comment)

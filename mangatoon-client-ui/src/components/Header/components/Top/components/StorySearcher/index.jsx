@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import Search from "../../../../../Search"
 import useStorySearch from "./hooks/useStorySearch"
 import { PENDING } from "../../../../../../constants/fetchStatus.constant"
@@ -59,4 +59,4 @@ function StorySearcher() {
     )
 }
 
-export default StorySearcher
+export default memo(StorySearcher)

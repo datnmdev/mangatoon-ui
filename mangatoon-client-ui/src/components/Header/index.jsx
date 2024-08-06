@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import Bottom from './components/Bottom'
 import Top from './components/Top'
 
@@ -15,4 +16,4 @@ function Header() {
     )
 }
 
-export default Header
+export default memo(Header)

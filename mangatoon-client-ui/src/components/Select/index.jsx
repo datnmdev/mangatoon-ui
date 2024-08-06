@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 function Select({
     options,
     value,
@@ -28,4 +30,4 @@ function Select({
     )
 }
 
-export default Select
+export default memo(Select)

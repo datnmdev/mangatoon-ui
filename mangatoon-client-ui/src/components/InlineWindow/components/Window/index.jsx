@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 function Window({
     title,
     onCloseClicked,
@@ -27,4 +29,4 @@ function Window({
     )
 }
 
-export default Window
+export default memo(Window)

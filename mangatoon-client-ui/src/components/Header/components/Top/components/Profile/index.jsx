@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import useGetProfile from "./hooks/useGetProfile"
 import { PENDING, SUCCEEDED } from "../../../../../../constants/fetchStatus.constant"
@@ -145,4 +145,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default memo(Profile)
