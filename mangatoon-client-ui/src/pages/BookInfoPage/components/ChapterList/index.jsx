@@ -3,6 +3,7 @@ import api from '../../../../api'
 import { Link } from 'react-router-dom'
 import { timeAgo } from '../../../../helpers/timer'
 import location from '../../../../routers/location'
+import View from './components/View'
 
 function ChapterList({ book }) {
     const [chapters, setChapters] = useState(null)
@@ -52,6 +53,10 @@ function ChapterList({ book }) {
                                         >
                                             {chapter.name}
                                         </Link>
+
+                                        <View
+                                            chapterId={chapter.id}
+                                        />
 
                                         <span>{timeAgo(chapter.updatedAt)}</span>
                                     </li>

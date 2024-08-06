@@ -11,5 +11,10 @@ export default {
         return axiosInstance().get('/story-api/viewDetail/story/topViewCount', {
             params: queries
         })
+    },
+    getViewCountOfChapter: (chapterId, queries) => {
+        return axiosInstance().get(`/story-api/viewDetail/chapter/${chapterId}/viewCount`, {
+            params: queries
+        })
     }
 }
