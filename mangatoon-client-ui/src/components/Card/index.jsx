@@ -46,20 +46,23 @@ function Card({ data }) {
 
     return (
         <div className='overflow-hidden'>
-            <div className='relative'>
-                <div>
-                    <Link to={location.bookInfoPage(data)}>
+            <div>
+                <div className='flex justify-center'>
+                    <Link
+                        to={location.bookInfoPage(data)}
+                        className='relative'
+                    >
                         <img
                             ref={coverImageRef}
                             className='rounded-[4px] w-[180px] h-[234px] object-cover object-center'
                             src={data.coverImageUrl}
                             alt={data.title}
                         />
-                    </Link>
-                </div>
 
-                <div className='absolute top-0 left-0 px-2 py-3'>
-                    <span className='p-1.5 bg-[#56CBF2] text-white text-[0.95rem] rounded-[6px]'>{timeAgo(data.updatedAt)}</span>
+                        <div className='absolute top-0 left-0 px-2 py-3'>
+                            <span className='p-1.5 bg-[#56CBF2] text-white text-[0.95rem] rounded-[6px]'>{timeAgo(data.updatedAt)}</span>
+                        </div>
+                    </Link>
                 </div>
             </div>
 
