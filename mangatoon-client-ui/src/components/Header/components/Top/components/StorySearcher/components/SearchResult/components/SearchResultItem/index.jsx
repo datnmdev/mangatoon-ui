@@ -1,14 +1,14 @@
-import { memo, useEffect, useRef, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import api from "../../../../../../../../../../api"
 import { Link, useNavigate } from 'react-router-dom'
 import location from "../../../../../../../../../../routers/location"
+import { urlOfStoryServiceGenerator } from "../../../../../../../../../../helpers/url"
 
 function SearchResultItem({ 
     data
 }) {
     const navigate = useNavigate()
     const [lastChapter, setLastChapter] = useState(null)
-    const coverImageRef = useRef(null)
 
     useEffect(() => {
         async function getLastChapter() {
@@ -27,32 +27,12 @@ function SearchResultItem({
         getLastChapter()
     }, [])
 
-    useEffect(() => {
-        async function getImage() {
-            try {
-                const response = await api.story.getImage({
-                    url: data.coverImageUrl
-                })
-                const imageBlob = response.data
-                const imageUrl = URL.createObjectURL(imageBlob)
-                coverImageRef.current.src = imageUrl
-            } catch (error) {
-                console.error('Error fetching image:', error);
-            }
-        }
-
-        if (!data.coverImageUrl.startsWith('https://storage.googleapis.com')) {
-            getImage()
-        }
-    }, [])
-
     return (
         <div className="flex justify-between space-x-4">
             <div className="shrink-0">
                 <img
-                    ref={coverImageRef}
                     className="w-[64px] h-[84px] rounded-sm object-cover object-center"
-                    src={data.coverImageUrl}
+                    src={urlOfStoryServiceGenerator(data.coverImageUrl)}
                     alt={data.title}
                 />
             </div>

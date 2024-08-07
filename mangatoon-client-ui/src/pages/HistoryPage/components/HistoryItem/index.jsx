@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { PENDING, SUCCEEDED } from "../../../../constants/fetchStatus.constant"
 import useGetStory from "./hooks/useGetStory"
 import moment from "moment"
@@ -7,7 +7,7 @@ import useGetChapter from "./hooks/useGetChapter"
 import location from "../../../../routers/location"
 import IconButton from "../../../../components/IconButton"
 import useDeleteHistoryDetail from "./hooks/useDeleteHistoryDetail"
-import api from "../../../../api"
+import { urlOfStoryServiceGenerator } from "../../../../helpers/url"
 
 function HistoryItem({ 
     data,
@@ -16,7 +16,6 @@ function HistoryItem({
     const { data: getChapterData, status: getChapterStatus, setSubmit: setGetChapterSubmit } = useGetChapter(data)
     const { data: getStoryData, status: getStoryStatus, setSubmit: setGetStorySubmit } = useGetStory(getChapterData?.data?.rows?.[0])
     const { data: deleteHistoryDetailData, status: deleteHistoryDetailStatus, setSubmit: setDeleteHistoryDetailSubmit } = useDeleteHistoryDetail(data.id)
-    const coverImageRef = useRef(null)
 
     useEffect(() => {
         setGetChapterSubmit(true)
@@ -38,32 +37,12 @@ function HistoryItem({
         }
     }, [deleteHistoryDetailStatus])
 
-    useEffect(() => {
-        async function getImage() {
-            try {
-                const response = await api.story.getImage({
-                    url: getStoryData.data.rows[0].coverImageUrl
-                })
-                const imageBlob = response.data
-                const imageUrl = URL.createObjectURL(imageBlob)
-                coverImageRef.current.src = imageUrl
-            } catch (error) {
-                console.error('Error fetching image:', error);
-            }
-        }
-
-        if (getStoryData && !getStoryData.data.rows[0].coverImageUrl.startsWith('https://storage.googleapis.com')) {
-            getImage()
-        }
-    }, [getStoryData])
-
     return (
         <div className="flex justify-between items-center bg-white rounded-[6px] overflow-hidden p-2 space-x-4">
             <div>
                 <img
-                    ref={coverImageRef}
                     className="w-[64px] h-[84px] rounded-[6px]"
-                    src={(getStoryData?.data && getStoryStatus != PENDING) ? getStoryData.data.rows[0].coverImageUrl : ''}
+                    src={(getStoryData?.data && getStoryStatus != PENDING) ? urlOfStoryServiceGenerator(getStoryData.data.rows[0].coverImageUrl) : ''}
                     alt={(getStoryData?.data && getStoryStatus != PENDING) ? getStoryData.data.rows[0].title : ''}
                 />
             </div>

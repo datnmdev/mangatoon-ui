@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import api from '../../api'
 import { timeAgo } from '../../helpers/timer';
 import location from '../../routers/location';
+import { urlOfStoryServiceGenerator } from '../../helpers/url';
 
 function Card({ data }) {
     const [lastChapter, setLastChapter] = useState(null)
-    const coverImageRef = useRef(null)
 
     useEffect(() => {
         async function getLastChapter() {
@@ -25,25 +25,6 @@ function Card({ data }) {
         getLastChapter()
     }, [])
 
-    useEffect(() => {
-        async function getImage() {
-            try {
-                const response = await api.story.getImage({
-                    url: data.coverImageUrl
-                })
-                const imageBlob = response.data
-                const imageUrl = URL.createObjectURL(imageBlob)
-                coverImageRef.current.src = imageUrl
-            } catch (error) {
-                console.error('Error fetching image:', error);
-            }
-        }
-
-        if (!data.coverImageUrl.startsWith('https://storage.googleapis.com')) {
-            getImage()
-        }
-    }, [])
-
     return (
         <div className='overflow-hidden'>
             <div>
@@ -53,9 +34,8 @@ function Card({ data }) {
                         className='relative'
                     >
                         <img
-                            ref={coverImageRef}
                             className='rounded-[4px] w-[180px] h-[234px] object-cover object-center'
-                            src={data.coverImageUrl}
+                            src={urlOfStoryServiceGenerator(data.coverImageUrl)}
                             alt={data.title}
                         />
 

@@ -11,6 +11,7 @@ import { PENDING } from '../../../../constants/fetchStatus.constant'
 import RatingSection from './components/RatingSection'
 import { Skeleton } from '@mui/material'
 import useGetRatingInfoOfStory from './hooks/useGetRatingInfoOfStory'
+import { urlOfStoryServiceGenerator } from '../../../../helpers/url'
 
 function BookInfo({ data }) {
     const navigate = useNavigate()
@@ -94,32 +95,13 @@ function BookInfo({ data }) {
         setRatingInfoOfStorySubmit(true)
     }, [])
 
-    useEffect(() => {
-        async function getImage() {
-            try {
-                const response = await api.story.getImage({
-                    url: data.coverImageUrl
-                })
-                const imageBlob = response.data
-                const imageUrl = URL.createObjectURL(imageBlob)
-                coverImageRef.current.src = imageUrl
-            } catch (error) {
-                console.error('Error fetching image:', error);
-            }
-        }
-
-        if (!data.coverImageUrl.startsWith('https://storage.googleapis.com')) {
-            getImage()
-        }
-    }, [])
-
     return (
         <div className='md:flex md:justify-between md:space-x-8'>
             <div>
                 <img
                     ref={coverImageRef}
                     className='w-[192px] h-[250px] rounded-[6px] shadow-[0_0_8px_0_#757575] mx-auto'
-                    src={data.coverImageUrl}
+                    src={urlOfStoryServiceGenerator(data.coverImageUrl)}
                     alt={data.title}
                 />
             </div>

@@ -18,12 +18,12 @@ function TopWeekList() {
     }, [queries])
 
     return (
-        <div className='mt-4 space-y-4 rounded-[4px] overflow-hidden'>
-            <ul className='grid grid-cols-4 text-center'>
+        <div className='mt-4 space-y-4 overflow-hidden'>
+            <ul className='grid sm:grid-cols-2 md:grid-cols-4 text-center'>
                 <Button
                     backgroundColor={queries.limit === 10 ? "#F08121" : "#ccc"}
                     sx={{
-                        fontSize: '1.2rem',
+                        fontSize: '1.1rem',
                         fontWeight: '600',
                         borderRadius: 0
                     }}
@@ -38,7 +38,7 @@ function TopWeekList() {
                 <Button
                     backgroundColor={queries.limit === 20 ? "#F08121" : "#ccc"}
                     sx={{
-                        fontSize: '1.2rem',
+                        fontSize: '1.1rem',
                         fontWeight: '600',
                         borderRadius: 0
                     }}
@@ -53,7 +53,7 @@ function TopWeekList() {
                 <Button
                     backgroundColor={queries.limit === 50 ? "#F08121" : "#ccc"}
                     sx={{
-                        fontSize: '1.2rem',
+                        fontSize: '1.1rem',
                         fontWeight: '600',
                         borderRadius: 0
                     }}
@@ -68,7 +68,7 @@ function TopWeekList() {
                 <Button
                     backgroundColor={queries.limit === 100 ? "#F08121" : "#ccc"}
                     sx={{
-                        fontSize: '1.2rem',
+                        fontSize: '1.1rem',
                         fontWeight: '600',
                         borderRadius: 0
                     }}

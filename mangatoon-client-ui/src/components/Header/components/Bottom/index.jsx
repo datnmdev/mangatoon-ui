@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import api from '../../../../api'
 import GenreDetail from './components/GenreDetail'
 import location from '../../../../routers/location'
@@ -9,6 +9,7 @@ function Bottom() {
     const [genres, setGenres] = useState([])
     const [hidden, setHidden] = useState(true)
     const [genreHidden, setGenreHidden] = useState(true)
+    const genreDetailRef = useRef(null)
 
     useEffect(() => {
         async function getGenres() {
@@ -21,6 +22,20 @@ function Bottom() {
         }
 
         getGenres()
+    }, [])
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (genreDetailRef.current && !genreDetailRef.current.contains(event.target)) {
+                setGenreHidden(true)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
     }, [])
 
     return (
@@ -57,6 +72,7 @@ function Bottom() {
                 </li>
 
                 <li
+                    ref={genreDetailRef}
                     className='hover:bg-[#F29C56] select-none'
                 >
                     <div
