@@ -3,7 +3,8 @@ import { ERROR, INFO, WARNING } from "./constants"
 
 function Alert({ 
     children,
-    type = INFO
+    type = INFO,
+    textAlign = 'center'
 }) {
 
     let backgroundColor = '#D9ECF7'
@@ -15,9 +16,10 @@ function Alert({
 
     return (
         <div 
-            className="text-white text-center px-4 py-2 rounded-[4px]"
+            className="text-white px-4 py-2 rounded-[4px]"
             style={{
-                backgroundColor
+                backgroundColor,
+                textAlign
             }}
         >
             {children}

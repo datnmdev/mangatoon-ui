@@ -53,9 +53,10 @@ function MainControlBox({
     }, [searchText])
 
     return (
-        <div className="fixed left-0 bottom-0 bg-[#242526] w-full flex justify-center items-center py-2 sm:px-2">
+        <div className="fixed left-0 bottom-0 bg-[#242526] w-full flex justify-center items-center py-2 sm:px-2 z-10">
             <div className="flex items-center space-x-4">
                 <Link
+                    className="shrink-0"
                     to={location.homePage()}
                 >
                     <IconButton
@@ -68,7 +69,7 @@ function MainControlBox({
                     />
                 </Link>
 
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 shrink-0">
                     <IconButton
                         icon={(<i className="fa-solid fa-angle-left"></i>)}
                         color="black"

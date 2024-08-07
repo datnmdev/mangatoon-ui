@@ -73,7 +73,7 @@ function ForgotPasswordPage() {
     if (step === 4) {
         return (
             <div className="flex justify-center my-8">
-                <div className="bg-white min-w-[420px] p-8 rounded-[8px]">
+                <div className="bg-white w-[420px] p-8 rounded-[8px]">
                     <div className="flex justify-center">
                         <div className="flex justify-between items-center space-x-4">
                             <img

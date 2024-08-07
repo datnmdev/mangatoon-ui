@@ -82,7 +82,7 @@ function SignInPage() {
 
     return (
         <div className="flex justify-center my-8">
-            <div className="bg-white min-w-[420px] p-8 rounded-[8px]">
+            <div className="bg-white w-[420px] p-8 rounded-[8px]">
                 <div className="flex justify-center">
                     <img
                         src="/logos/mangatoon.png"
@@ -96,6 +96,7 @@ function SignInPage() {
                             <div>
                                 <Alert
                                     type={ERROR}
+                                    textAlign="left"
                                 >
                                     {alert}
                                 </Alert>

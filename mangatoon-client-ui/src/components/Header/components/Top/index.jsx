@@ -1,7 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import colors from '../../../../assets/colors'
 import Button from '../../../Button'
-import Search from '../../../Search'
 import location from '../../../../routers/location'
 import Profile from './components/Profile'
 import { useSelector } from 'react-redux'

@@ -5,7 +5,10 @@ import GenreDetail from './components/GenreDetail'
 import location from '../../../../routers/location'
 import IconButton from '../../../IconButton'
 
-function Bottom() {
+function Bottom({
+    hiddenSearch,
+    setHiddenSearch
+}) {
     const [genres, setGenres] = useState([])
     const [hidden, setHidden] = useState(true)
     const [genreHidden, setGenreHidden] = useState(true)
@@ -53,6 +56,7 @@ function Bottom() {
                     <IconButton
                         icon={(<i className="fa-solid fa-magnifying-glass text-[1.4rem]"></i>)}
                         backgroundColor='transparent'
+                        onClick={() => setHiddenSearch(!hiddenSearch)} 
                     />
                 </div>
             </div>

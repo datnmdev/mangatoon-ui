@@ -8,6 +8,7 @@ import { PENDING, SUCCEEDED } from '../../../../../../constants/fetchStatus.cons
 import SkeletonFollowButton from './SkeletonFollowButton'
 import IconButton from '../../../../../../components/IconButton'
 import Protected from '../../../../../../components/Protected'
+import RoundButton from '../../../../../../components/RoundButton'
 
 function FollowButton({
     book
@@ -47,44 +48,33 @@ function FollowButton({
         }
     }, [deleteStoryFollowDetailStatus])
 
-
-    if (!getStoryFollowDetailData?.data || getStoryFollowDetailStatus === PENDING) {
-        return (
-            <SkeletonFollowButton />
-        )
-    }
-
-    if (createStoryFollowDetailStatus === PENDING || deleteStoryFollowDetailStatus === PENDING) {
-        return (
-            <IconButton
-                disabled={true}
-            >
-                Đang xử lý...
-            </IconButton>
-        )
-    }
-
     return (
         <Protected
             enable={enableProtection}
         >
             <IconButton
-                icon={(<i className="fa-solid fa-heart"></i>)}
-                backgroundColor="white"
+                icon={getStoryFollowDetailData?.data.rows?.[0] ? (<i className="fa-solid fa-heart"></i>) : <i className="fa-regular fa-heart"></i>}
+                backgroundColor='white'
                 color="black"
                 sx={{
-                    padding: '6px 8px'
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: 0
                 }}
                 onClick={() => {
                     setEnableProtection(true)
-                    if (!getStoryFollowDetailData.data.rows?.[0]) {
+                    if (!getStoryFollowDetailData?.data.rows?.[0]) {
                         setCreateStoryFollowDetailSubmit(true)
                     } else {
                         setDeleteStoryFollowDetailSubmit(true)
                     }
                 }}
             >
-                {getStoryFollowDetailData.data.rows?.[0] ? 'Đang theo dõi' : 'Theo dõi'}
+
             </IconButton>
         </Protected>
     )
