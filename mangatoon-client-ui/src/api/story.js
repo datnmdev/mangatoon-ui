@@ -15,5 +15,10 @@ export default {
         return axiosInstance().get('/story-api/story/search', {
             params: queries
         })
+    },
+    getTopChartData: (queries) => {
+        return axiosInstance().get('/story-api/story/chart', {
+            params: queries
+        })
     }
 }

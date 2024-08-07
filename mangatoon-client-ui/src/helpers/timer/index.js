@@ -29,3 +29,9 @@ export function timeAgo(time) {
         return "Vừa xong";
     }
 }
+
+export function getMillisecondsToRoundedTime() {
+    const now = moment.utc()
+    const roundedTime = now.clone().startOf('day').add(now.hour(), 'hours')
+    return roundedTime.valueOf()
+}
