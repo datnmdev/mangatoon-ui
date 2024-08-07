@@ -31,10 +31,10 @@ function Content({
         value: false
     })
     const [createChapterImagesBody, setCreateChapterImageBody] = useState(undefined)
-    const {data: createChapterImagesData, status: createChapterImagesStatus, setSubmit: setCreateChapterImagesSubmit} = useCreateChapterImages(createChapterImagesBody)
-    const {data: deleteChapterImageByChapterIdData, status: deleteChapterImageByChapterIdStatus, setSubmit: setDeleteChapterImageByChapterIdSubmit} = useDeleteChapterImageByChapterId(chapter.id)
-    const {data: deleteChapterImageByIdData, status: deleteChapterImageByIdStatus, setSubmit: setDeleteChapterImageByIdSubmit} = useDeleteChapterImageById(selectedchapterImage?.id)
-    const {data: updateChapterImageData, status: updateChapterImageStatus, setSubmit: setUpdateChapterImageSubmit} = useUpdateChapterImage({
+    const { data: createChapterImagesData, status: createChapterImagesStatus, setSubmit: setCreateChapterImagesSubmit } = useCreateChapterImages(createChapterImagesBody)
+    const { data: deleteChapterImageByChapterIdData, status: deleteChapterImageByChapterIdStatus, setSubmit: setDeleteChapterImageByChapterIdSubmit } = useDeleteChapterImageByChapterId(chapter.id)
+    const { data: deleteChapterImageByIdData, status: deleteChapterImageByIdStatus, setSubmit: setDeleteChapterImageByIdSubmit } = useDeleteChapterImageById(selectedchapterImage?.id)
+    const { data: updateChapterImageData, status: updateChapterImageStatus, setSubmit: setUpdateChapterImageSubmit } = useUpdateChapterImage({
         id: selectedchapterImage?.id,
         order: isNaN(Number(order)) ? undefined : Number(order)
     })
@@ -157,8 +157,8 @@ function Content({
                 </IconButton>
             </div>
 
-            <div className="flex items-start justify-between grow overflow-auto mt-4">
-                <div className="flex items-start flex-wrap -ml-2 -mt-2 w-1/2 overflow-auto">
+            <div className="flex items-start justify-between grow mt-4 overflow-hidden">
+                <div className="grow h-full flex items-start flex-wrap -ml-2 -mt-2 w-1/2 overflow-auto">
                     {getChapterImagesStatus === SUCCEEDED
                         && (
                             chapterImageData.data.map(chapterImage => {
@@ -180,10 +180,10 @@ function Content({
                         )}
                 </div>
 
-                <div className="grow w-[50%] flex justify-center overflow-hidden">
+                <div className="grow h-full w-[50%] flex flex-col justify-center overflow-hidden">
                     {selectedchapterImage
                         ? (
-                            <div className="grow overflow-auto space-y-2 px-2">
+                            <div className="grow flex flex-col overflow-hidden space-y-2 px-2">
                                 <div>
                                     <div>
                                         <div>Order</div>
@@ -213,12 +213,14 @@ function Content({
                                     </div>
                                 </div>
 
-                                <div>
+                                <div className="grow overflow-hidden flex flex-col">
                                     <div>Preview</div>
 
-                                    <Previewer
-                                        chapterImageData={selectedchapterImage}
-                                    />
+                                    <div className="grow overflow-auto">
+                                        <Previewer
+                                            chapterImageData={selectedchapterImage}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         )

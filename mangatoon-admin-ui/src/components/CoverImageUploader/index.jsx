@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import IconButton from "../IconButton"
-import api from "../../api"
+import { urlOfStoryServiceGenerator } from "../../helpers/url"
 
 function CoverImageUploader({
     disabled = false,
@@ -12,7 +12,6 @@ function CoverImageUploader({
 }) {
     const fileInputRef = useRef(null)
     const [file, setFile] = useState(null)
-    const imgRef = useRef(null)
 
     useEffect(() => {
         if (onChange) {
@@ -26,25 +25,6 @@ function CoverImageUploader({
         }
     }, [reset])
 
-    useEffect(() => {
-        async function getImage() {
-            try {
-                const response = await api.story.getImage({
-                    url: previewUrl
-                })
-                const imageBlob = response.data
-                const imageUrl = URL.createObjectURL(imageBlob)
-                imgRef.current.src = imageUrl
-            } catch (error) {
-                console.error('Error fetching image:', error);
-            }
-        }
-
-        if (previewUrl && !previewUrl.startsWith('https://storage.googleapis.com')) {
-            getImage()
-        }
-    }, [previewUrl])
-
     return (
         <div
             className="relative group/parent rounded-[8px] overflow-hidden w-[216px] h-[295px] border-4"
@@ -57,9 +37,8 @@ function CoverImageUploader({
                 {file || previewUrl
                     ? (
                         <img
-                            ref={imgRef}
                             className="w-full h-full object-cover object-center"
-                            src={file ? URL.createObjectURL(file) : previewUrl}
+                            src={file ? URL.createObjectURL(file) : urlOfStoryServiceGenerator(previewUrl)}
                             alt="Cover Image"
                         />
                     )

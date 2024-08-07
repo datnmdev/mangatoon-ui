@@ -10,7 +10,7 @@ function TextEditor({
     return (
         <div className="h-[240px]">
             <Editor
-                apiKey='7nl6o4qti0mxrz46w3c55byok271z0rnk13vm42v8y8g34om'
+                apiKey='5xrrong39ll877mk6qiv7lpczyhxkalmp62f9o36f6nfd9r2'
                 value={value}
                 init={{
                     height,
