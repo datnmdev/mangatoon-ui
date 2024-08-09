@@ -37,6 +37,8 @@ function HistoryItem({
         }
     }, [deleteHistoryDetailStatus])
 
+    console.log(getStoryData?.data);
+
     return (
         <div className="flex justify-between items-center bg-white rounded-[6px] overflow-hidden p-2 space-x-4">
             <div>

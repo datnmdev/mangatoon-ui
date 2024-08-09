@@ -110,7 +110,7 @@ function MainControlBox({
                                 isOpenWindow={openSearchIW.value}
                                 key={openSearchIW.key}
                             >
-                                <div className="px-6 mb-6 max-w-[720px] max-h-[400px] overflow-hidden flex flex-col">
+                                <div className="px-6 mb-6 max-h-[400px] overflow-hidden flex flex-col">
                                     <div>
                                         <Search
                                             placeholder="Nhập tên chương..."
