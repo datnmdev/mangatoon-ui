@@ -686,10 +686,6 @@ video {
   margin-top: 2rem;
 }
 
-.box-content {
-  box-sizing: content-box;
-}
-
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;

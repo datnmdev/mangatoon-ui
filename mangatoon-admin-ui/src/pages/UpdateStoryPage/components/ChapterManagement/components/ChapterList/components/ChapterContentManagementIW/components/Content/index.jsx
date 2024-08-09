@@ -158,7 +158,7 @@ function Content({
             </div>
 
             <div className="flex items-start justify-between grow mt-4 overflow-hidden">
-                <div className="grow h-full flex items-start flex-wrap -ml-2 -mt-2 w-1/2 overflow-auto">
+                <div className="grow h-full flex flex-wrap -ml-2 -mt-2 w-1/2 overflow-auto">
                     {getChapterImagesStatus === SUCCEEDED
                         && (
                             chapterImageData.data.map(chapterImage => {
@@ -169,7 +169,7 @@ function Content({
                                             border: chapterImage.id === selectedchapterImage?.id ? '4px solid rgb(33, 197, 93)' : 'none'
                                         }}
                                         onClick={() => setSelectedChapterImage(chapterImage)}
-                                        className="ml-2 mt-2 box-content cursor-pointer"
+                                        className="ml-2 mt-2 cursor-pointer"
                                     >
                                         <Item
                                             chapterImageData={chapterImage}
