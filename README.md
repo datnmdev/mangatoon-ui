@@ -12,6 +12,7 @@ MANGATOON UI is a project under the Mangatoon initiative, launched in May 2024 a
 ![image](https://github.com/user-attachments/assets/5f92039c-2d28-40d7-b747-fb0b6ae952bb)
 ## Related
 - MANGATOON API - BACKEND: https://github.com/datptithcm/mangatoon-api
+- Detailed documentation of the entire project: https://drive.google.com/file/d/1W2GQng27083LFq0OvVY2PcyJY2feRsnn/view?usp=sharing
 ## User interface
 - User and guest functionality interface
   + Home page
