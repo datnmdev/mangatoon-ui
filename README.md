@@ -6,6 +6,11 @@ Mangatoon UI is a project under the Mangatoon initiative, launched in May 2024 a
 - HTML/CSS/Javascript
 - TailwindCSS
 - Firebase
+## Deployment
+- Docker/Docker Compose
+- Jenkins CI/CD
+## Related
+- MANGATOON API - BACKEND: https://github.com/datptithcm/mangatoon-api
 ## User interface
 - User and guest functionality interface
   + Home page
@@ -68,8 +73,3 @@ Mangatoon UI is a project under the Mangatoon initiative, launched in May 2024 a
     ![image](https://github.com/user-attachments/assets/9e3d56fc-b154-4b0e-bda7-b1827f775346)
   + Personal account management functionality
     ![image](https://github.com/user-attachments/assets/c10ba200-6488-408d-b39d-9b31aa69eb39)
-## Deployment
-- Docker/Docker Compose
-- Jenkins CI/CD
-## Related
-- MANGATOON API - BACKEND: https://github.com/datptithcm/mangatoon-api
