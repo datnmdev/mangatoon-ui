@@ -9,6 +9,7 @@ MANGATOON UI is a project under the Mangatoon initiative, launched in May 2024 a
 ## Deployment
 - Docker/Docker Compose
 - Jenkins CI/CD
+![image](https://github.com/user-attachments/assets/5f92039c-2d28-40d7-b747-fb0b6ae952bb)
 ## Related
 - MANGATOON API - BACKEND: https://github.com/datptithcm/mangatoon-api
 ## User interface
